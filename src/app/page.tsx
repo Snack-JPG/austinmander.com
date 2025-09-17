@@ -1,28 +1,19 @@
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
-import { Hero } from "@/features/hero";
-import { ProjectGrid } from "@/features/project-grid";
-import { AIWorkflow } from "@/features/ai-workflow";
-import { ShipLogList } from "@/features/ship-log-list";
-import { getAllPosts } from "@/lib/mdx";
+import { Hero } from "@/components/Hero";
+import { ServicesOverview } from "@/components/ServicesOverview";
+import { Testimonials } from "@/components/Testimonials";
+import { CTA } from "@/components/CTA";
 
-export default function Home() {
-  const projects = getAllPosts("projects");
-  const logs = getAllPosts("logs");
-
+export default function HomePage() {
   return (
     <>
       <Navigation />
-      <main>
+      <main className="pt-16">
         <Hero />
-        <ProjectGrid
-          projects={projects}
-          maxItems={6}
-          title="Featured Work"
-          subtitle="Projects built with AI systems, modern stack, and speed."
-        />
-        <AIWorkflow />
-        <ShipLogList logs={logs} maxItems={5} />
+        <ServicesOverview />
+        <Testimonials />
+        <CTA />
       </main>
       <Footer />
     </>

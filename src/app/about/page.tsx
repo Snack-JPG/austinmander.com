@@ -1,66 +1,35 @@
-import Link from "next/link";
+import { Metadata } from "next";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
-import { SectionHeader } from "@/components/ui/section-header";
-import { Card, CardContent } from "@/components/ui/card";
-import { Pill } from "@/components/ui/pill";
-import { Button } from "@/components/ui/button";
-import { ArrowRight, Mail } from "lucide-react";
-import type { Metadata } from "next";
+import { CTA } from "@/components/CTA";
+import { Card } from "@/components/ui/card";
+import { Award, Users, Target, Briefcase } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "About - Austin Mander",
-  description:
-    "Systems‑minded builder treating AI as leverage. Architect software like products, not projects.",
-  openGraph: {
-    title: "About - Austin Mander",
-    description:
-      "Systems‑minded builder treating AI as leverage. Architect software like products, not projects.",
-    images: [
-      {
-        url: "/og?title=About Austin Mander&subtitle=Systems‑minded builder treating AI as leverage&type=about",
-        width: 1200,
-        height: 630,
-        alt: "About Austin Mander",
-      },
-    ],
-  },
+  title: "About",
+  description: "Learn about Austin Mander - AI Consultant and Product Creator",
 };
 
-const techStack = [
-  "Next.js",
-  "TypeScript",
-  "React",
-  "Node.js",
-  "Python",
-  "Supabase",
-  "Vercel",
-  "Docker",
-  "PostgreSQL",
-  "Tailwind CSS",
-  "Claude",
-  "Cursor",
-];
-
-const principles = [
+const achievements = [
   {
-    title: "Speed over perfection",
-    description: "Ship fast, iterate faster. Perfect is the enemy of deployed.",
+    icon: Award,
+    title: "15+ Years Experience",
+    description: "Leading transformations across multiple industries",
   },
   {
-    title: "AI as force multiplier",
-    description:
-      "Don't replace humans—amplify them. AI handles the routine, I focus on the strategic.",
+    icon: Users,
+    title: "50+ Projects Delivered",
+    description: "From startups to Fortune 500 companies",
   },
   {
-    title: "Products, not projects",
-    description:
-      "Build for longevity. Testable, maintainable, and actually useful in production.",
+    icon: Target,
+    title: "£2M+ Value Created",
+    description: "Measurable ROI for every engagement",
   },
   {
-    title: "Fewer meetings, more momentum",
-    description:
-      "Async-first communication. Deep work over shallow coordination.",
+    icon: Briefcase,
+    title: "Change Radar Founder",
+    description: "Building AI products that solve real problems",
   },
 ];
 
@@ -69,102 +38,71 @@ export default function AboutPage() {
     <>
       <Navigation />
       <main className="pt-16">
-        <div className="container px-4 py-12">
-          <div className="mx-auto max-w-4xl space-y-16">
-            {/* Header */}
-            <SectionHeader
-              title="Building at the intersection of AI and ambition"
-              subtitle="I'm Austin, a systems‑minded builder who treats AI as leverage. I architect software like products, not projects: testable, repeatable, and shipped fast."
-            />
-
-            {/* Bio */}
-            <div className="prose prose-lg max-w-none">
-              <p className="text-text-weak leading-relaxed">
-                Previously, I spent years in data, analytics, and PMO
-                tooling—watching teams struggle with slow, manual processes. Now
-                I build solutions that compound: systems that get smarter over
-                time, workflows that eliminate friction, and tools that make the
-                impossible feel routine.
-              </p>
-
-              <p className="text-text-weak leading-relaxed">
-                My approach is simple: use AI to handle the repetitive work so
-                humans can focus on the creative and strategic. Every project
-                starts with the question: &ldquo;How can we make this 10x faster
-                without breaking anything important?&rdquo;
+        <section className="py-20 bg-gradient-to-br from-slate-50 to-white dark:from-slate-900 dark:to-slate-800">
+          <div className="container mx-auto px-4">
+            <div className="max-w-3xl mx-auto text-center">
+              <h1 className="text-4xl md:text-5xl font-bold text-navy dark:text-white mb-6">
+                About Austin Mander
+              </h1>
+              <p className="text-xl text-muted-foreground">
+                AI Consultant, Product Creator, and Transformation Leader
               </p>
             </div>
-
-            {/* Principles */}
-            <div className="space-y-8">
-              <h2 className="text-foreground text-2xl font-semibold">
-                Philosophy
-              </h2>
-              <div className="grid gap-6 md:grid-cols-2">
-                {principles.map((principle, index) => (
-                  <Card key={index} className="border-border/50 bg-card/30">
-                    <CardContent className="p-6">
-                      <h3 className="text-foreground mb-2 font-semibold">
-                        {principle.title}
-                      </h3>
-                      <p className="text-text-weak text-sm">
-                        {principle.description}
-                      </p>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </div>
-
-            {/* Tech Stack */}
-            <div className="space-y-6">
-              <h2 className="text-foreground text-2xl font-semibold">
-                Current Stack
-              </h2>
-              <div className="flex flex-wrap gap-2">
-                {techStack.map((tech) => (
-                  <Pill key={tech} variant="accent">
-                    {tech}
-                  </Pill>
-                ))}
-              </div>
-              <p className="text-text-weak text-sm">
-                Always evolving. I pick tools based on speed to ship, not hype
-                cycles.
-              </p>
-            </div>
-
-            {/* CTA */}
-            <Card className="border-accent-primary/20 bg-accent-primary/5">
-              <CardContent className="space-y-4 p-8 text-center">
-                <h2 className="text-foreground text-2xl font-semibold">
-                  Have a gnarly idea?
-                </h2>
-                <p className="text-text-weak mx-auto max-w-2xl">
-                  I prefer shipping demos over slides. If you have a stack that
-                  needs force‑multiplying or an ambitious project that demands
-                  speed, let&apos;s talk.
-                </p>
-                <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-                  <Button
-                    size="lg"
-                    asChild
-                    className="bg-accent-primary hover:bg-accent-primary/90 text-white"
-                  >
-                    <a href="/contact" className="group">
-                      <Mail className="mr-2 h-4 w-4" />
-                      Get in touch
-                      <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    </a>
-                  </Button>
-                  <Button variant="outline" size="lg" asChild>
-                    <Link href="/work">See the work →</Link>
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
           </div>
-        </div>
+        </section>
+
+        <section className="py-16">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <div className="prose prose-lg dark:prose-invert mx-auto">
+                <p>
+                  I&apos;m Austin Mander, an AI consultant and product creator with over 15 years of experience leading digital transformations. I help organisations use AI to save leaders time, reduce risk, and deliver predictable change.
+                </p>
+                
+                <h2>My Journey</h2>
+                <p>
+                  My career has taken me from software engineering to executive advisory roles, always focused on one thing: using technology to solve real business problems. I&apos;ve led transformations at companies ranging from nimble startups to Fortune 500 enterprises.
+                </p>
+                
+                <p>
+                  In 2023, I founded Change Radar after seeing too many transformation programs fail due to lack of predictive intelligence. The product now helps organisations anticipate risks before they become problems, saving leaders hours each week and dramatically improving project success rates.
+                </p>
+
+                <h2>My Approach</h2>
+                <p>
+                  I believe in pragmatic AI implementation - no black boxes, no buzzwords, just clear value delivery. Every engagement starts with understanding your specific challenges and ends with measurable results. I combine strategic consulting with hands-on product development to ensure ideas become reality.
+                </p>
+
+                <h2>What Sets Me Apart</h2>
+                <ul>
+                  <li><strong>Practitioner, not theorist:</strong> I build real AI products that solve real problems</li>
+                  <li><strong>Results-focused:</strong> Every engagement has clear metrics and deliverables</li>
+                  <li><strong>Full-stack capability:</strong> From strategy to implementation, I can execute end-to-end</li>
+                  <li><strong>Proven track record:</strong> £2M+ in value created across 50+ projects</li>
+                </ul>
+              </div>
+
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+                {achievements.map((item, index) => {
+                  const Icon = item.icon;
+                  return (
+                    <Card key={index} className="p-6 text-center">
+                      <div className="mx-auto mb-4 h-12 w-12 rounded-full bg-teal/10 flex items-center justify-center">
+                        <Icon className="h-6 w-6 text-teal" />
+                      </div>
+                      <h3 className="font-semibold mb-2">{item.title}</h3>
+                      <p className="text-sm text-muted-foreground">
+                        {item.description}
+                      </p>
+                    </Card>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <CTA />
       </main>
       <Footer />
     </>

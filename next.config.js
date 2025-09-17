@@ -1,7 +1,5 @@
-import type { NextConfig } from "next";
-import createMDX from "@next/mdx";
-
-const nextConfig: NextConfig = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   pageExtensions: ["js", "jsx", "mdx", "ts", "tsx"],
   experimental: {
     mdxRs: false,
@@ -17,16 +15,13 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "**.vercel.app",
       },
+      {
+        protocol: "https",
+        hostname: "austinmander.com",
+      },
     ],
     unoptimized: false,
   },
 };
 
-const withMDX = createMDX({
-  options: {
-    remarkPlugins: [],
-    rehypePlugins: [],
-  },
-});
-
-export default withMDX(nextConfig);
+module.exports = nextConfig;
