@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Core colors */
+    --background: 15 23 42; /* slate-800 */
+    --foreground: 248 250 252; /* slate-50 */
+    --card: 30 41 59; /* slate-700 */
+    --card-foreground: 248 250 252;
+    --popover: 30 41 59;
+    --popover-foreground: 248 250 252;
+    --primary: 16 185 129; /* emerald-500 */
+    --primary-foreground: 15 23 42;
+    --secondary: 51 65 85; /* slate-600 */
+    --secondary-foreground: 248 250 252;
+    --muted: 51 65 85;
+    --muted-foreground: 148 163 184; /* slate-400 */
+    --accent: 51 65 85;
+    --accent-foreground: 248 250 252;
+    --accent-primary: 16 185 129; /* emerald-500 */
+    --destructive: 239 68 68;
+    --destructive-foreground: 248 250 252;
+    --border: 71 85 105; /* slate-500 */
+    --input: 71 85 105;
+    --ring: 16 185 129;
+    --radius: 0.5rem;
+    
+    /* Text hierarchy */
+    --text: 248 250 252;
+    --text-weak: 203 213 225; /* slate-300 */
+    --text-muted: 148 163 184; /* slate-400 */
+    
+    /* Surface colors */
+    --surface: 30 41 59;
+    --surface-2: 15 23 42;
+    --surface-elevated: 51 65 85;
+  }
+  
+  .dark {
+    --background: 15 23 42;
+    --foreground: 248 250 252;
+    --card: 30 41 59;
+    --card-foreground: 248 250 252;
+    --popover: 30 41 59;
+    --popover-foreground: 248 250 252;
+    --primary: 16 185 129;
+    --primary-foreground: 15 23 42;
+    --secondary: 51 65 85;
+    --secondary-foreground: 248 250 252;
+    --muted: 51 65 85;
+    --muted-foreground: 148 163 184;
+    --accent: 51 65 85;
+    --accent-foreground: 248 250 252;
+    --accent-primary: 16 185 129;
+    --destructive: 239 68 68;
+    --destructive-foreground: 248 250 252;
+    --border: 71 85 105;
+    --input: 71 85 105;
+    --ring: 16 185 129;
+    
+    --text: 248 250 252;
+    --text-weak: 203 213 225;
+    --text-muted: 148 163 184;
+    
+    --surface: 30 41 59;
+    --surface-2: 15 23 42;
+    --surface-elevated: 51 65 85;
+  }
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+  
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: Inter, system-ui, sans-serif;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Custom Components */
+.gradient-text {
+  background: linear-gradient(135deg, rgb(16 185 129) 0%, rgb(59 130 246) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hover-lift {
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes pulse-glow {
+  from {
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+  }
+  to {
+    box-shadow: 0 0 30px rgba(16, 185, 129, 0.6);
+  }
+}

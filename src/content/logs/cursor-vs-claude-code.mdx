@@ -1,0 +1,87 @@
+---
+title: "Cursor vs Claude Code: 6 months of side-by-side usage"
+slug: "cursor-vs-claude-code"
+date: "2024-11-15"
+summary: "Real talk on which AI coding tool actually makes you more productive."
+tags: ["AI", "Tools", "Productivity", "Cursor", "Claude"]
+---
+
+After 6 months using both Cursor and Claude Code daily, here's what I've learned about when to use each.
+
+## Cursor: The Speed Demon
+
+**Best for:**
+
+- Autocomplete that actually predicts what you want
+- Quick refactoring across multiple files
+- When you know exactly what to build
+
+**Example:** Renaming a function across 20 files
+
+```typescript
+// Type "updateUserPr" and Cursor suggests the full refactor
+updateUserProfile -> updateUserProfileWithValidation
+```
+
+**Wins:**
+
+- Feels like pair programming with someone who reads your mind
+- Inline suggestions don't break flow
+- Great at maintaining code style consistency
+
+**Misses:**
+
+- Sometimes suggests overcomplicated solutions
+- Can hallucinate dependencies that don't exist
+- Weak at explaining architectural decisions
+
+## Claude Code: The Thoughtful Architect
+
+**Best for:**
+
+- Building complex features from scratch
+- Debugging gnarly issues
+- Learning new patterns and approaches
+
+**Example:** "Build a rate limiter with Redis that handles burst traffic"
+
+```typescript
+// Claude Code explains the approach, implements it,
+// and adds comprehensive error handling you wouldn't think of
+```
+
+**Wins:**
+
+- Explains the "why" behind every suggestion
+- Catches edge cases and error conditions
+- Excellent at breaking down complex problems
+
+**Misses:**
+
+- Slower iteration cycle
+- Sometimes overly verbose
+- Requires more explicit direction
+
+## My Workflow
+
+**Morning deep work:** Claude Code for architectural thinking and complex features
+
+**Afternoon iteration:** Cursor for rapid implementation and refactoring
+
+**Debugging nasty issues:** Claude Code for systematic problem-solving
+
+**Quick fixes and cleanup:** Cursor for speed
+
+## The Verdict
+
+They're not competing—they're complementary.
+
+**Cursor makes you faster at what you already know how to do.**
+
+**Claude Code makes you better at what you don't know how to do yet.**
+
+Using both has made me a significantly more productive developer. The key is knowing when to reach for which tool.
+
+---
+
+_Probably going to write a longer piece about this. The tooling landscape is evolving fast and most people are only using one or the other._

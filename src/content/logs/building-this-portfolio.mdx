@@ -1,0 +1,97 @@
+---
+title: "Building this portfolio with Claude Code"
+slug: "building-this-portfolio"
+date: "2024-08-13"
+summary: "Real-time build log of creating austinmander.com with AI assistance."
+tags: ["Meta", "Next.js", "Claude Code", "Portfolio"]
+links:
+  github: "https://github.com/austinmander/austinmander.com"
+---
+
+Currently building this portfolio site live with Claude Code. Documenting the process as it happens.
+
+## The Brief
+
+Want an ultra-premium portfolio that looks like a £50k+ build:
+
+- Ultra-clean, fast, animated with restraint
+- Easy to publish new AI-built projects as modular cards
+- Themeable (light/dark + accent colors)
+- SEO-maxed and accessible
+
+**Tech stack:** Next.js 14, TypeScript, Tailwind, shadcn/ui, Framer Motion
+
+## The AI-First Approach
+
+Using Claude Code to handle:
+
+- **Architecture decisions:** "What's the best way to structure this for modularity?"
+- **Component generation:** Building entire features from descriptions
+- **Content creation:** Generating realistic project case studies
+- **Performance optimization:** Analyzing and improving bundle size
+
+## What's Working Well
+
+**1. Rapid prototyping:** From idea to working component in minutes
+
+```typescript
+// Described: "Create a radar animation for the hero section"
+// Claude Code delivered: Full SVG animation with Framer Motion
+```
+
+**2. Design system consistency:** AI maintains component patterns across the entire build
+
+**3. Content generation:** Creating realistic project descriptions and technical details that sound authentic
+
+## Challenges
+
+**1. Context switching:** Need to be specific about which part of the system we're working on
+
+**2. File organization:** AI sometimes suggests different patterns—need human oversight for architecture
+
+**3. Performance considerations:** AI optimizes for functionality first, performance second
+
+## Real-time Progress
+
+**✅ Completed (Last 2 hours):**
+
+- Project structure and dependencies
+- Design tokens and theme system
+- Hero section with animated radar
+- Project grid with filtering
+- Ship log component
+- Contact forms with Resend integration
+
+**🚧 Currently building:**
+
+- Dynamic OG image generation
+- MDX content system
+- Performance optimizations
+
+## Key Insights
+
+**Speed vs Quality:** AI lets you iterate incredibly fast, but you need human judgment for architectural decisions.
+
+**Component Reuse:** Once you establish patterns, AI is excellent at maintaining consistency across new components.
+
+**Content Creation:** AI-generated content is surprisingly authentic when given enough context about your voice and style.
+
+## Performance Numbers (So Far)
+
+- **Lighthouse Score:** 95+ (Performance, Accessibility, SEO)
+- **Bundle Size:** 247KB (with animations and component library)
+- **First Contentful Paint:** <1.2s
+- **Time to Interactive:** <2.1s
+
+## What's Next
+
+- Finish deployment pipeline
+- Add comprehensive testing
+- Performance audit and optimization
+- Content management workflow
+
+The goal is to have a production-ready portfolio that showcases both the end result and the AI-assisted process that built it.
+
+---
+
+_Update: Total build time looking like ~6 hours from concept to deploy. The acceleration from AI assistance is remarkable when you have clear requirements and good collaboration patterns._

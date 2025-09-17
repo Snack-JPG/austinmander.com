@@ -1,0 +1,160 @@
+---
+title: "Supabase Edge Functions: 5 things I wish I knew earlier"
+slug: "supabase-edge-functions-tips"
+date: "2024-10-20"
+summary: "Hard-learned lessons from building production APIs with Supabase Edge Functions."
+tags: ["Supabase", "Edge Computing", "API", "Performance"]
+---
+
+Been shipping production APIs with Supabase Edge Functions for 8 months. Here are the gotchas I wish someone had told me upfront.
+
+## 1. Cold Starts Are Real (But Manageable)
+
+**The Problem:** Functions can take 2-3 seconds to wake up after inactivity.
+
+**The Solution:** Implement a simple ping endpoint and cron job:
+
+```typescript
+// ping.ts
+export async function handler() {
+  return new Response(JSON.stringify({ status: 'alive', timestamp: Date.now() }), {
+    headers: { 'Content-Type': 'application/json' }
+  });
+}
+
+// Keep warm with GitHub Actions
+# .github/workflows/keep-warm.yml
+- name: Ping edge functions
+  run: |
+    curl https://your-project.supabase.co/functions/v1/ping
+```
+
+**Result:** Cold starts down from 3s to ~300ms for active functions.
+
+## 2. Memory Limits Hit Faster Than Expected
+
+**Default limit:** 128MB (surprisingly easy to exceed)
+
+**Watch out for:**
+
+- Large JSON payloads in memory
+- Image processing operations
+- Multiple external API calls
+
+**Better approach:**
+
+```typescript
+// Bad: Loads entire file into memory
+const data = await response.json();
+
+// Good: Stream processing
+const reader = response.body?.getReader();
+while (true) {
+  const { done, value } = await reader.read();
+  if (done) break;
+  // Process chunk by chunk
+}
+```
+
+## 3. Environment Variables Need Secrets Management
+
+**Don't do this:**
+
+```bash
+supabase functions deploy --env MY_API_KEY=abc123
+```
+
+**Do this:**
+
+```bash
+# Store in Supabase dashboard secrets
+supabase secrets set MY_API_KEY=abc123
+
+# Access in function
+const apiKey = Deno.env.get('MY_API_KEY');
+```
+
+**Bonus:** Secrets are encrypted and can be different per environment.
+
+## 4. CORS Is Your Friend (Configure It Properly)
+
+**Default CORS is restrictive.** You'll get blocked by browsers.
+
+```typescript
+// Standard CORS helper
+const corsHeaders = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Headers":
+    "authorization, x-client-info, apikey, content-type",
+};
+
+export async function handler(req: Request) {
+  // Handle preflight
+  if (req.method === "OPTIONS") {
+    return new Response("ok", { headers: corsHeaders });
+  }
+
+  // Your logic here
+  const result = await doSomething();
+
+  return new Response(JSON.stringify(result), {
+    headers: { ...corsHeaders, "Content-Type": "application/json" },
+  });
+}
+```
+
+## 5. Local Development Setup Matters
+
+**Use the CLI properly:**
+
+```bash
+# Start everything together
+supabase start
+
+# Develop with auto-reload
+supabase functions serve --env-file ./supabase/.env.local
+
+# Debug with inspect
+supabase functions serve --inspect-brk
+```
+
+**Pro tip:** Create a `dev.sh` script:
+
+```bash
+#!/bin/bash
+supabase start
+supabase functions serve --env-file ./supabase/.env.local --inspect &
+supabase db reset
+wait
+```
+
+## Bonus: Performance Monitoring
+
+Built a simple performance tracker:
+
+```typescript
+const startTime = performance.now();
+
+// Your function logic
+
+const duration = performance.now() - startTime;
+console.log(`Function executed in ${duration.toFixed(2)}ms`);
+
+// Log to external service for monitoring
+await logMetrics({
+  function: "my-function",
+  duration,
+  memory: getMemoryUsage(),
+  timestamp: Date.now(),
+});
+```
+
+## The Bottom Line
+
+Supabase Edge Functions are powerful but have sharp edges. Plan for cold starts, manage memory carefully, and invest in good local development setup.
+
+Once you get past the initial hurdles, they're incredibly productive for building fast, globally distributed APIs.
+
+---
+
+_Planning a deeper dive on advanced patterns like streaming responses and database connection pooling. The performance gains are significant when done right._

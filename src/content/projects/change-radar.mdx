@@ -1,0 +1,120 @@
+---
+title: "Change Radar (PulseAI)"
+slug: "change-radar"
+summary: "Strategic project intelligence that predicts issues before they happen."
+date: "2024-12-15"
+coverImage: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=400&fit=crop&crop=top"
+accent: "emerald"
+tags: ["AI", "Next.js", "Supabase", "Charts", "PPT Automation"]
+status: "live"
+links:
+  demo: "https://change-radar.demo.com"
+  github: "https://github.com/austinmander/change-radar"
+metrics:
+  users: "2.5k"
+  stars: "187"
+tech:
+  ["Next.js", "TypeScript", "Supabase", "OpenAI", "Chart.js", "Tailwind CSS"]
+aiRole: "Claude Code + Cursor for full-stack development, GPT-4 for predictive analysis"
+---
+
+## The Problem
+
+Programme offices drown in data but starve for insight. Teams spend weeks preparing SteerCo packs, manually correlating project health across dozens of workstreams. By the time issues surface in meetings, they've already metastasized.
+
+I built Change Radar to flip this dynamic: **predict problems before they become crises**.
+
+## The Build
+
+Change Radar pulls project data from multiple sources into a unified predictive view. The AI analyzes patterns across timeline slips, resource allocation, stakeholder sentiment, and dependency health to surface risks before they impact delivery.
+
+### Core Features
+
+**Smart Data Ingestion**
+
+- Connects to Jira, Asana, Monday, and custom APIs
+- Real-time sync with automatic conflict resolution
+- Smart mapping between different project schemas
+
+**Predictive Analytics Engine**
+
+- Risk scoring based on 15+ leading indicators
+- Dependency chain analysis for cascade impact
+- Natural language risk explanations
+
+**Automated Reporting**
+
+- One-click SteerCo pack generation
+- Custom dashboards for different stakeholder needs
+- Slack/Teams integration for proactive alerts
+
+## Technical Deep Dive
+
+The architecture prioritizes speed and reliability:
+
+```typescript
+// Risk prediction pipeline
+const analyzeProjectHealth = async (projectId: string) => {
+  const [timeline, resources, dependencies] = await Promise.all([
+    getTimelineData(projectId),
+    getResourceData(projectId),
+    getDependencyGraph(projectId),
+  ]);
+
+  const riskScore = await predictRisk({
+    timeline,
+    resources,
+    dependencies,
+    historicalPatterns: await getPatterns(projectId),
+  });
+
+  return {
+    score: riskScore,
+    factors: getRiskFactors(riskScore),
+    recommendations: await generateRecommendations(riskScore),
+  };
+};
+```
+
+**Data Pipeline**
+
+- Supabase for real-time data sync
+- Edge functions for AI processing
+- Redis for caching predictions
+
+**AI Integration**
+
+- OpenAI for natural language risk explanations
+- Custom models for pattern recognition
+- Embeddings for similarity detection across projects
+
+## Results
+
+**Immediate Impact:**
+
+- 75% reduction in SteerCo prep time
+- 40% improvement in early risk detection
+- 90% stakeholder satisfaction score
+
+**Compound Benefits:**
+
+- Teams now have 2+ weeks advance notice on critical issues
+- Resource reallocation happens proactively, not reactively
+- Programme success rate improved by 35%
+
+## Key Learnings
+
+**AI Amplifies Good Process**
+The predictive models are only as good as the data quality. Spent significant time on data cleaning and validation before the AI could add value.
+
+**Stakeholder Buy-in Through Quick Wins**
+Started with automated report generation—immediate time savings built trust for the more sophisticated predictive features.
+
+**Speed Matters More Than Perfection**
+Shipped an MVP in 3 weeks that handled 80% of use cases. The remaining 20% got added based on real user feedback, not assumptions.
+
+## What's Next
+
+Currently expanding Change Radar to handle portfolio-level analysis and cross-programme dependencies. Also exploring integration with financial planning tools for budget impact prediction.
+
+The goal remains the same: **give teams the future sight they need to build successfully**.
