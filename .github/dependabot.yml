@@ -1,0 +1,69 @@
+version: 2
+updates:
+  # Enable version updates for npm
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "04:00"
+    open-pull-requests-limit: 10
+    reviewers:
+      - "austin"
+    assignees:
+      - "austin"
+    labels:
+      - "dependencies"
+      - "npm"
+    commit-message:
+      prefix: "chore"
+      prefix-development: "chore"
+      include: "scope"
+    ignore:
+      # Ignore major version updates for critical packages
+      - dependency-name: "next"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "react"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "react-dom"
+        update-types: ["version-update:semver-major"]
+    groups:
+      # Group all development dependencies
+      dev-dependencies:
+        patterns:
+          - "@types/*"
+          - "eslint*"
+          - "@typescript-eslint/*"
+          - "prettier*"
+        update-types:
+          - "minor"
+          - "patch"
+      # Group all testing dependencies
+      test-dependencies:
+        patterns:
+          - "*test*"
+          - "jest*"
+          - "@testing-library/*"
+          - "playwright*"
+        update-types:
+          - "minor"
+          - "patch"
+
+  # Enable version updates for GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "04:00"
+    open-pull-requests-limit: 5
+    reviewers:
+      - "austin"
+    assignees:
+      - "austin"
+    labels:
+      - "dependencies"
+      - "github-actions"
+    commit-message:
+      prefix: "chore"
+      include: "scope"

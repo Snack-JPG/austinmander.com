@@ -4,10 +4,16 @@ import { siteConfig } from "@/lib/config";
 
 const footerLinks = {
   services: [
+    { name: "AI Toolkit", href: "/ai-toolkit" },
     { name: "AI Strategy", href: "/consulting" },
     { name: "Change Radar", href: "/change-radar" },
     { name: "Case Studies", href: "/case-studies" },
-    { name: "Resources", href: "/resources" },
+  ],
+  resources: [
+    { name: "Free Prompts", href: "/ai-toolkit" },
+    { name: "Workflows", href: "/ai-toolkit/workflows" },
+    { name: "Tool Reviews", href: "/ai-toolkit/tools" },
+    { name: "Download Center", href: "/resources" },
   ],
   company: [
     { name: "About", href: "/about" },
@@ -26,7 +32,7 @@ export function Footer() {
   return (
     <footer className="bg-slate-50 dark:bg-slate-900 border-t">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-5">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-6">
           {/* Brand */}
           <div className="lg:col-span-2 space-y-4">
             <Link href="/" className="text-xl font-bold text-navy dark:text-white">
@@ -60,6 +66,23 @@ export function Footer() {
             <h3 className="font-semibold mb-3">Services</h3>
             <ul className="space-y-2">
               {footerLinks.services.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-muted-foreground hover:text-teal transition-colors"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Resources */}
+          <div>
+            <h3 className="font-semibold mb-3">Resources</h3>
+            <ul className="space-y-2">
+              {footerLinks.resources.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}

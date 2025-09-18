@@ -1,24 +1,22 @@
+import { publicEnv } from './env';
+
 export const siteConfig = {
   name: "Austin Mander",
   title: "Austin Mander — AI Consultant & Product Creator",
   description:
     "I help organisations use AI to save leaders time, reduce risk, and deliver predictable change. Founder of Change Radar — predictive intelligence for transformation.",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://austinmander.com",
-  ogImage: "https://austinmander.com/og-image.png",
+  url: publicEnv.siteUrl,
+  ogImage: `${publicEnv.siteUrl}/og-image.png`,
   links: {
     linkedin: "https://linkedin.com/in/austinmander",
     github: "https://github.com/austinmander",
     email: "austin@austinmander.com",
   },
   pricing: {
-    hourlyRate: Number(process.env.NEXT_PUBLIC_HOURLY_RATE) || 300,
-    pilotPrice: Number(process.env.NEXT_PUBLIC_PILOT_PRICE) || 15000,
+    hourlyRate: publicEnv.hourlyRate,
+    pilotPrice: publicEnv.pilotPrice,
   },
-  features: {
-    sowGenerator: process.env.ENABLE_SOW_GENERATOR === "true",
-    roiCalculator: process.env.ENABLE_ROI_CALCULATOR === "true",
-    booking: process.env.ENABLE_BOOKING === "true",
-  },
+  features: publicEnv.features,
   calendly: {
     url: "https://calendly.com/austinmander/discovery",
   },

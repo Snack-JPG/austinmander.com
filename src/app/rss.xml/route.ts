@@ -1,33 +1,33 @@
 import { NextResponse } from "next/server";
-import { getAllPosts } from "@/lib/mdx";
+import { blogPosts } from "@/lib/mdx";
+import { siteConfig } from "@/lib/config";
 
 export async function GET() {
-  const baseUrl = "https://austinmander.com";
-  const logs = getAllPosts("logs");
+  const baseUrl = siteConfig.url;
 
   const rssXml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Austin Mander - Ship Log</title>
-    <description>Building at unfair speed with AI. Recent builds, experiments, and updates.</description>
-    <link>${baseUrl}/log</link>
+    <title>${siteConfig.name} - Blog</title>
+    <description>${siteConfig.description}</description>
+    <link>${baseUrl}/blog</link>
     <atom:link href="${baseUrl}/rss.xml" rel="self" type="application/rss+xml" />
     <language>en-US</language>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
-    <managingEditor>hello@austinmander.com (Austin Mander)</managingEditor>
-    <webMaster>hello@austinmander.com (Austin Mander)</webMaster>
+    <managingEditor>${siteConfig.links.email} (${siteConfig.name})</managingEditor>
+    <webMaster>${siteConfig.links.email} (${siteConfig.name})</webMaster>
     
-    ${logs
+    ${blogPosts
       .map(
-        (log) => `
+        (post) => `
     <item>
-      <title><![CDATA[${log.frontMatter.title}]]></title>
-      <description><![CDATA[${log.frontMatter.summary || "Austin Mander's development log"}]]></description>
-      <link>${baseUrl}/log/${log.frontMatter.slug}</link>
-      <guid isPermaLink="true">${baseUrl}/log/${log.frontMatter.slug}</guid>
-      <pubDate>${new Date(log.frontMatter.date).toUTCString()}</pubDate>
-      <category>Development</category>
-      <author>hello@austinmander.com (Austin Mander)</author>
+      <title><![CDATA[${post.title}]]></title>
+      <description><![CDATA[${post.excerpt}]]></description>
+      <link>${baseUrl}/blog/${post.slug}</link>
+      <guid isPermaLink="true">${baseUrl}/blog/${post.slug}</guid>
+      <pubDate>${new Date(post.publishedAt).toUTCString()}</pubDate>
+      <category>${post.category}</category>
+      <author>${siteConfig.links.email} (${post.author.name})</author>
     </item>
     `
       )
