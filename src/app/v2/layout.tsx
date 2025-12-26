@@ -29,12 +29,21 @@ export const metadata: Metadata = {
       "Stop wasting hours on repetitive work. I help agencies and consultancies automate proposals, reports, client updates, and more. Book a free AI audit.",
     type: "website",
     locale: "en_GB",
+    images: [
+      {
+        url: "/v2/og",
+        width: 1200,
+        height: 630,
+        alt: "Austin Mander - AI Automation for Agencies & Consultancies",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Austin Mander | AI Automation for Agencies & Consultancies",
     description:
       "Stop wasting hours on repetitive work. I help agencies and consultancies automate proposals, reports, client updates, and more.",
+    images: ["/v2/og"],
   },
 };
 
