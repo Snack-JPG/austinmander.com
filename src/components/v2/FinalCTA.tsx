@@ -41,8 +41,8 @@ export function FinalCTA() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="mx-auto mt-6 max-w-2xl text-lg text-zinc-400 sm:text-xl"
         >
-          Book a free 15-minute audit. I&apos;ll show you exactly where AI can save you
-          time — no pitch, no pressure.
+          Book a free 30-minute strategy session. I&apos;ll map your workflows, identify
+          automation opportunities, and give you a custom roadmap with ROI estimates.
         </motion.p>
 
         <motion.div
@@ -55,7 +55,7 @@ export function FinalCTA() {
             url={CALENDLY_URL}
             className="group relative inline-flex items-center gap-3 overflow-hidden rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 px-10 py-5 text-xl font-semibold text-white shadow-lg shadow-cyan-500/25 transition-all duration-300 hover:scale-105 hover:shadow-cyan-500/40"
           >
-            <span className="relative z-10">Book Your Free AI Audit</span>
+            <span className="relative z-10">Book Free Strategy Session</span>
             <ArrowRight className="relative z-10 h-6 w-6 transition-transform duration-300 group-hover:translate-x-1" />
             <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-500 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
           </CalendlyButton>

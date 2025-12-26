@@ -10,35 +10,35 @@ const CALENDLY_URL = "https://calendly.com/austinmander/ai-audit";
 const services = [
   {
     icon: Zap,
-    title: "AI Workflow Audit",
+    title: "AI Strategy Session",
     description: [
-      "15-minute call to map your biggest time drains",
-      "Walk away with 3 specific automations you could implement",
-      "Free — no strings attached",
+      "30-minute deep-dive into your workflows",
+      "Custom automation roadmap with ROI estimates",
+      "3 prioritised recommendations you can action immediately",
     ],
     price: "Free",
     featured: true,
   },
   {
     icon: Cog,
-    title: "Single Automation Build",
+    title: "Automation Sprint",
     description: [
-      "One workflow, fully automated",
-      "Email sequences, report generation, data sync — you name it",
-      "Documentation and training included",
+      "One complete workflow, production-grade",
+      "Built by an engineer, not stitched with no-code tools",
+      "Documentation, training, and 30-day support included",
     ],
-    price: "From £750",
+    price: "From £2,500",
     featured: false,
   },
   {
     icon: Layers,
-    title: "Full Automation System",
+    title: "Automation Infrastructure",
     description: [
-      "Complete infrastructure for your business",
-      "Multiple workflows, integrations, AI assistants",
-      "Ongoing support included",
+      "Complete automation ecosystem for your agency",
+      "Multiple workflows, AI assistants, API integrations",
+      "90-day support with priority access",
     ],
-    price: "From £2,500",
+    price: "From £7,500",
     featured: false,
   },
 ];
@@ -127,7 +127,7 @@ export function ServicesCards() {
                       : "bg-zinc-800 text-white hover:bg-zinc-700"
                   }`}
                 >
-                  Book Now
+                  {service.featured ? "Book Strategy Session" : "Get Started"}
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </CalendlyButton>
               </div>

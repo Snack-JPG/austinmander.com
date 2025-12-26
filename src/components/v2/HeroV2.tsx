@@ -45,15 +45,24 @@ export function HeroV2() {
       <div className="relative mx-auto flex w-full max-w-7xl flex-col-reverse items-center gap-12 lg:flex-row lg:gap-16">
         {/* Text Content */}
         <div className="flex-1 text-center lg:text-left">
-          <motion.h1
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
+            className="mb-4 font-[family-name:var(--font-jetbrains)] text-sm font-medium uppercase tracking-wider text-cyan-400"
+          >
+            AI Engineer
+          </motion.p>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.05 }}
             className="font-[family-name:var(--font-space-grotesk)] text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl"
           >
-            AI Automation for{" "}
+            Your Agency&apos;s{" "}
             <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-              Agencies & Consultancies
+              Automation Partner
             </span>
           </motion.h1>
 
@@ -63,8 +72,8 @@ export function HeroV2() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="mt-6 text-lg leading-relaxed text-zinc-400 sm:text-xl lg:max-w-xl"
           >
-            Stop wasting hours on repetitive work. Proposals, reports, client updates,
-            data entry — I&apos;ll automate it so you can focus on what actually matters.
+            I build production-grade automation infrastructure that lets you scale
+            without scaling headcount. Not Zapier stitching — real engineering.
           </motion.p>
 
           <motion.div
@@ -77,7 +86,7 @@ export function HeroV2() {
               url={CALENDLY_URL}
               className="group relative inline-flex items-center gap-2 overflow-hidden rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 px-8 py-4 text-lg font-semibold text-white shadow-lg shadow-cyan-500/25 transition-all duration-300 hover:scale-105 hover:shadow-cyan-500/40"
             >
-              <span className="relative z-10">Book Your Free AI Audit</span>
+              <span className="relative z-10">Book Free Strategy Session</span>
               <ArrowRight className="relative z-10 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
               <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-500 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
             </CalendlyButton>
@@ -89,7 +98,7 @@ export function HeroV2() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="mt-4 font-[family-name:var(--font-jetbrains)] text-sm text-zinc-500"
           >
-            15 minutes. No pitch. Just actionable insights.
+            30 minutes. Custom roadmap. No obligation.
           </motion.p>
         </div>
 
