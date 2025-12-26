@@ -3,6 +3,8 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { ArrowRight, Mail } from "lucide-react";
+import { CalendlyEmbed } from "./CalendlyEmbed";
+import { CalendlyButton } from "./CalendlyModal";
 
 const CALENDLY_URL = "https://calendly.com/austinmander/ai-audit";
 
@@ -49,16 +51,14 @@ export function FinalCTA() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="mt-10"
         >
-          <a
-            href={CALENDLY_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+          <CalendlyButton
+            url={CALENDLY_URL}
             className="group relative inline-flex items-center gap-3 overflow-hidden rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 px-10 py-5 text-xl font-semibold text-white shadow-lg shadow-cyan-500/25 transition-all duration-300 hover:scale-105 hover:shadow-cyan-500/40"
           >
             <span className="relative z-10">Book Your Free AI Audit</span>
             <ArrowRight className="relative z-10 h-6 w-6 transition-transform duration-300 group-hover:translate-x-1" />
             <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-500 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-          </a>
+          </CalendlyButton>
         </motion.div>
 
         <motion.div
@@ -76,23 +76,17 @@ export function FinalCTA() {
           </a>
         </motion.div>
 
-        {/* Calendly Embed placeholder */}
+        {/* Calendly Inline Embed */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.4 }}
           className="mt-16"
         >
-          <div className="overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900/80 p-8">
-            <div className="flex flex-col items-center justify-center py-12 text-zinc-500">
-              <p className="font-[family-name:var(--font-jetbrains)] text-sm">
-                Calendly embed will be displayed here
-              </p>
-              <p className="mt-2 text-xs text-zinc-600">
-                Replace with actual Calendly inline embed
-              </p>
-            </div>
-          </div>
+          <p className="mb-4 text-sm text-zinc-500">
+            Or book directly below:
+          </p>
+          <CalendlyEmbed url={CALENDLY_URL} height="700px" />
         </motion.div>
       </div>
     </section>

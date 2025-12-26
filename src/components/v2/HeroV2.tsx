@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import dynamic from "next/dynamic";
 import { Suspense } from "react";
+import { CalendlyButton, CalendlyPreload } from "./CalendlyModal";
 
 const RadarElement = dynamic(() => import("./RadarElement"), {
   ssr: false,
@@ -26,6 +27,9 @@ export function HeroV2() {
 
   return (
     <section className="relative flex min-h-screen flex-col justify-center overflow-hidden px-6 py-20 lg:px-12">
+      {/* Preload Calendly scripts */}
+      <CalendlyPreload />
+
       {/* Background gradient */}
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[#0a0a0f] via-[#0a0a0f] to-[#0f172a]" />
 
@@ -69,16 +73,14 @@ export function HeroV2() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mt-8 flex flex-col items-center gap-4 sm:flex-row lg:justify-start"
           >
-            <a
-              href={CALENDLY_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+            <CalendlyButton
+              url={CALENDLY_URL}
               className="group relative inline-flex items-center gap-2 overflow-hidden rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 px-8 py-4 text-lg font-semibold text-white shadow-lg shadow-cyan-500/25 transition-all duration-300 hover:scale-105 hover:shadow-cyan-500/40"
             >
               <span className="relative z-10">Book Your Free AI Audit</span>
               <ArrowRight className="relative z-10 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
               <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-500 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-            </a>
+            </CalendlyButton>
           </motion.div>
 
           <motion.p

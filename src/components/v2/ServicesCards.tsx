@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Zap, Cog, Layers, ArrowRight } from "lucide-react";
+import { CalendlyButton } from "./CalendlyModal";
 
 const CALENDLY_URL = "https://calendly.com/austinmander/ai-audit";
 
@@ -118,10 +119,8 @@ export function ServicesCards() {
                   {service.price}
                 </p>
 
-                <a
-                  href={CALENDLY_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <CalendlyButton
+                  url={CALENDLY_URL}
                   className={`inline-flex items-center gap-2 rounded-lg px-5 py-2.5 text-sm font-medium transition-all duration-300 ${
                     service.featured
                       ? "bg-cyan-500 text-zinc-900 hover:bg-cyan-400"
@@ -130,7 +129,7 @@ export function ServicesCards() {
                 >
                   Book Now
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </a>
+                </CalendlyButton>
               </div>
             </motion.div>
           ))}
