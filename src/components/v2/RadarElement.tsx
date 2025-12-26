@@ -4,6 +4,7 @@ import { useRef, useMemo, useState, useEffect } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Text, Float } from "@react-three/drei";
 import * as THREE from "three";
+import { RadarFallback, isWebGLSupported } from "./RadarFallback";
 
 const INEFFICIENCIES = [
   "Manual Data Entry",
@@ -217,18 +218,58 @@ function RadarScene() {
   );
 }
 
+function WebGLRadar() {
+  const [hasError, setHasError] = useState(false);
+
+  if (hasError) {
+    return <RadarFallback />;
+  }
+
+  return (
+    <Canvas
+      camera={{ position: [0, 0, 5], fov: 50 }}
+      dpr={[1, 2]}
+      gl={{ antialias: true, alpha: true }}
+      onCreated={({ gl }) => {
+        // Check if context was created successfully
+        if (!gl.getContext()) {
+          setHasError(true);
+        }
+      }}
+      fallback={<RadarFallback />}
+    >
+      <color attach="background" args={["#0a0a0f"]} />
+      <ambientLight intensity={0.5} />
+      <RadarScene />
+    </Canvas>
+  );
+}
+
 export default function RadarElement() {
+  const [webGLSupported, setWebGLSupported] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    setWebGLSupported(isWebGLSupported());
+  }, []);
+
+  // Show loading state during SSR/initial load
+  if (webGLSupported === null) {
+    return (
+      <div className="flex h-full w-full items-center justify-center">
+        <div className="h-64 w-64 animate-pulse rounded-full bg-gradient-to-br from-cyan-500/20 to-blue-500/20" />
+      </div>
+    );
+  }
+
+  // Show fallback if WebGL not supported
+  if (!webGLSupported) {
+    return <RadarFallback />;
+  }
+
+  // Show 3D radar
   return (
     <div className="h-full w-full">
-      <Canvas
-        camera={{ position: [0, 0, 5], fov: 50 }}
-        dpr={[1, 2]}
-        gl={{ antialias: true, alpha: true }}
-      >
-        <color attach="background" args={["#0a0a0f"]} />
-        <ambientLight intensity={0.5} />
-        <RadarScene />
-      </Canvas>
+      <WebGLRadar />
     </div>
   );
 }
