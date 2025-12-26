@@ -6,15 +6,15 @@ import { Text, Float } from "@react-three/drei";
 import * as THREE from "three";
 import { RadarFallback, isWebGLSupported } from "./RadarFallback";
 
-const INEFFICIENCIES = [
-  "Manual Data Entry",
-  "Repetitive Emails",
-  "Status Updates",
-  "Report Compilation",
-  "Client Onboarding",
-  "Invoice Processing",
-  "Proposal Writing",
-  "Meeting Scheduling",
+const DETECTED_RISKS = [
+  "Budget Overrun Risk",
+  "Timeline Slippage",
+  "Resource Conflict",
+  "Blocked Dependency",
+  "Scope Creep Detected",
+  "Milestone Delayed",
+  "Team Bottleneck",
+  "Status Overdue",
 ];
 
 function RadarSweep() {
@@ -197,9 +197,9 @@ function RadarScene() {
   });
 
   const labels = useMemo(() => {
-    return INEFFICIENCIES.map((text, i) => ({
+    return DETECTED_RISKS.map((text, i) => ({
       text,
-      angle: (i / INEFFICIENCIES.length) * Math.PI * 2,
+      angle: (i / DETECTED_RISKS.length) * Math.PI * 2,
       radius: 1.2 + Math.random() * 0.8,
       delay: i * 0.8,
     }));

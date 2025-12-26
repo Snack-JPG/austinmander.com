@@ -2,57 +2,27 @@
 
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import {
-  Radio,
-  Clock,
-  AlertTriangle,
-  Eye,
-  FileText,
-  Users,
-  TrendingUp
-} from "lucide-react";
+import { Suspense } from "react";
+import dynamic from "next/dynamic";
+import { ArrowRight, Check } from "lucide-react";
 
-const problems = [
-  {
-    icon: Clock,
-    problem: "Hours compiling status reports",
-    solution: "One-click executive summaries, board-ready PDFs",
-  },
-  {
-    icon: AlertTriangle,
-    problem: "Risks found too late",
-    solution: "AI detects problems before they escalate",
-  },
-  {
-    icon: Eye,
-    problem: "No visibility across projects",
-    solution: "Portfolio dashboard with health scores for 20+ projects",
-  },
-  {
-    icon: Users,
-    problem: "Resource conflicts discovered last minute",
-    solution: "Automatic warnings when people are over-allocated",
-  },
-  {
-    icon: TrendingUp,
-    problem: "Leaders always chasing for updates",
-    solution: "Scheduled reports sent automatically",
-  },
-  {
-    icon: FileText,
-    problem: "Data scattered across tools",
-    solution: "Connects to Jira, Monday, Slack — single source of truth",
-  },
-];
+// Dynamically import the 3D radar
+const RadarElement = dynamic(() => import("./RadarElement"), {
+  ssr: false,
+  loading: () => (
+    <div className="flex h-full w-full items-center justify-center">
+      <div className="h-48 w-48 animate-pulse rounded-full bg-gradient-to-br from-cyan-500/20 to-blue-500/20" />
+    </div>
+  ),
+});
 
-const techStack = [
-  "Claude",
-  "OpenAI",
-  "Python",
-  "TypeScript",
-  "Next.js",
-  "Supabase",
-  "PostgreSQL",
+const features = [
+  "AI-powered risk detection across all projects",
+  "One-click executive summaries & board-ready reports",
+  "Portfolio health dashboard with 20+ project visibility",
+  "Connects to Jira, Monday, Slack — single source of truth",
+  "Scheduled reports sent automatically to stakeholders",
+  "Natural language queries: ask questions, get answers",
 ];
 
 export function CurrentlyBuilding() {
@@ -64,103 +34,84 @@ export function CurrentlyBuilding() {
   return (
     <section
       ref={ref}
-      className="relative bg-zinc-950 px-6 py-24 lg:px-12 lg:py-32"
+      className="relative overflow-hidden bg-[#0a0a0f] px-6 py-24 lg:px-12 lg:py-32"
     >
-      <div className="mx-auto max-w-5xl">
-        {/* Section header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5 }}
-          className="mb-12 text-center"
-        >
-          <p className="font-[family-name:var(--font-jetbrains)] text-sm font-medium uppercase tracking-widest text-zinc-600">
-            Currently Building
-          </p>
-        </motion.div>
-
-        {/* Change Radar header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="mb-10 flex items-center justify-center gap-4"
-        >
-          <div className="inline-flex rounded-xl bg-cyan-500/10 p-3">
-            <Radio className="h-6 w-6 text-cyan-400" />
-          </div>
-          <div>
-            <h3 className="font-[family-name:var(--font-space-grotesk)] text-2xl font-bold text-white md:text-3xl">
-              Change Radar
-            </h3>
-            <p className="text-zinc-500">
-              AI-powered project intelligence
-            </p>
-          </div>
-        </motion.div>
-
-        {/* Problem → Solution grid */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="grid gap-4 md:grid-cols-2"
-        >
-          {problems.map((item, index) => (
-            <div
-              key={index}
-              className="group rounded-xl border border-zinc-800 bg-zinc-900/30 p-6 transition-colors hover:border-zinc-700"
+      <div className="mx-auto max-w-6xl">
+        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+          {/* Left side - Radar visualization */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={inView ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 0.6 }}
+            className="relative order-2 h-[300px] sm:h-[350px] lg:order-1 lg:h-[450px]"
+          >
+            <Suspense
+              fallback={
+                <div className="flex h-full w-full items-center justify-center">
+                  <div className="h-48 w-48 animate-pulse rounded-full bg-gradient-to-br from-cyan-500/20 to-blue-500/20" />
+                </div>
+              }
             >
-              <div className="flex items-start gap-4">
-                <div className="rounded-lg bg-zinc-800 p-2 text-zinc-500 transition-colors group-hover:bg-cyan-500/10 group-hover:text-cyan-400">
-                  <item.icon className="h-5 w-5" />
-                </div>
-                <div className="flex-1">
-                  <p className="text-sm text-zinc-600 line-through decoration-zinc-700">
-                    {item.problem}
-                  </p>
-                  <p className="mt-1 text-zinc-300">
-                    {item.solution}
-                  </p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </motion.div>
+              <RadarElement />
+            </Suspense>
+          </motion.div>
 
-        {/* Status */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={inView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="mt-8 text-center"
-        >
-          <p className="font-[family-name:var(--font-jetbrains)] text-sm text-zinc-600">
-            Launching soon · Built for transformation leaders
-          </p>
-        </motion.div>
+          {/* Right side - Content */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={inView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="order-1 lg:order-2"
+          >
+            <p className="font-[family-name:var(--font-jetbrains)] text-sm font-medium uppercase tracking-widest text-cyan-400">
+              My Product
+            </p>
 
-        {/* Tech stack */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={inView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="mt-16 border-t border-zinc-800 pt-12"
-        >
-          <p className="mb-6 text-center font-[family-name:var(--font-jetbrains)] text-sm font-medium uppercase tracking-widest text-zinc-600">
-            Tools I Work With
-          </p>
-          <div className="flex flex-wrap justify-center gap-3">
-            {techStack.map((tech) => (
-              <span
-                key={tech}
-                className="rounded-full border border-zinc-800 bg-zinc-900/50 px-4 py-2 text-sm text-zinc-500"
+            <h2 className="mt-4 font-[family-name:var(--font-space-grotesk)] text-3xl font-bold text-white sm:text-4xl">
+              Change Radar
+            </h2>
+
+            <p className="mt-4 text-lg leading-relaxed text-zinc-400">
+              Project intelligence for leaders who are tired of compiling status reports
+              and discovering risks too late.
+            </p>
+
+            {/* Feature list */}
+            <ul className="mt-8 space-y-3">
+              {features.map((feature, i) => (
+                <motion.li
+                  key={i}
+                  initial={{ opacity: 0, x: 10 }}
+                  animate={inView ? { opacity: 1, x: 0 } : {}}
+                  transition={{ duration: 0.4, delay: 0.3 + i * 0.05 }}
+                  className="flex items-start gap-3"
+                >
+                  <Check className="mt-0.5 h-5 w-5 flex-shrink-0 text-cyan-500" />
+                  <span className="text-zinc-300">{feature}</span>
+                </motion.li>
+              ))}
+            </ul>
+
+            {/* CTA */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={inView ? { opacity: 1 } : {}}
+              transition={{ duration: 0.5, delay: 0.6 }}
+              className="mt-10 flex items-center gap-6"
+            >
+              <a
+                href="#"
+                className="group inline-flex items-center gap-2 rounded-lg bg-cyan-500 px-6 py-3 font-semibold text-zinc-900 transition-colors hover:bg-cyan-400"
               >
-                {tech}
+                <span>Join Waitlist</span>
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </a>
+              <span className="font-[family-name:var(--font-jetbrains)] text-sm text-zinc-600">
+                Launching Q1 2025
               </span>
-            ))}
-          </div>
-        </motion.div>
+            </motion.div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
