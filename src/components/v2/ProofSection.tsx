@@ -3,17 +3,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { ExternalLink, Quote } from "lucide-react";
-
-const tools = [
-  { name: "Claude", color: "#D97706" },
-  { name: "OpenAI", color: "#10B981" },
-  { name: "Notion", color: "#FFFFFF" },
-  { name: "Make", color: "#9333EA" },
-  { name: "Zapier", color: "#FF4A00" },
-  { name: "Slack", color: "#4A154B" },
-  { name: "Google Workspace", color: "#4285F4" },
-  { name: "Airtable", color: "#18BFFF" },
-];
+import { toolsWithIcons } from "./ToolLogos";
 
 const testimonial = {
   quote:
@@ -174,13 +164,14 @@ export function ProofSection() {
           <p className="mb-6 text-center text-sm font-medium uppercase tracking-wider text-zinc-500">
             Tools I work with
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-6">
-            {tools.map((tool) => (
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            {toolsWithIcons.map((tool) => (
               <div
                 key={tool.name}
-                className="rounded-lg border border-zinc-800 bg-zinc-900/50 px-4 py-2 text-sm text-zinc-400 transition-colors hover:border-zinc-700 hover:text-white"
+                className={`group flex items-center gap-2 rounded-lg border border-zinc-800 bg-zinc-900/50 px-4 py-2.5 text-sm text-zinc-400 transition-all duration-300 ${tool.hoverColor}`}
               >
-                {tool.name}
+                <tool.icon className="h-5 w-5" />
+                <span>{tool.name}</span>
               </div>
             ))}
           </div>
