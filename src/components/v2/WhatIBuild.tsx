@@ -9,19 +9,22 @@ const offerings = [
     icon: Cpu,
     title: "AI-Powered Products",
     description:
-      "Full applications with AI at the core. From idea to production.",
+      "Full applications with AI at the core. RAG systems, batch processing, intelligent dashboards.",
+    example: "Like Change Radar — project intelligence that reads your data and surfaces risks automatically.",
   },
   {
     icon: Wrench,
     title: "Internal Tools",
     description:
-      "Custom tools built for your team's specific workflow. Not off-the-shelf. Actually useful.",
+      "Custom tools built for your team's specific workflow. Document processors, reporting systems, knowledge bases.",
+    example: "AI that understands your business context and actually helps, not generic chatbots.",
   },
   {
     icon: Workflow,
     title: "Automations & Systems",
     description:
-      "Workflows that run in the background. Things that used to take hours, handled automatically.",
+      "Workflows that run in the background. Data pipelines, content systems, integration layers.",
+    example: "Like my commit → Notion → LinkedIn system. Code changes become documented updates automatically.",
   },
 ];
 
@@ -57,7 +60,7 @@ export function WhatIBuild() {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group rounded-xl border border-zinc-800 bg-zinc-900/50 p-8 transition-colors duration-200 hover:border-zinc-700"
+              className="group flex flex-col rounded-xl border border-zinc-800 bg-zinc-900/50 p-8 transition-colors duration-200 hover:border-zinc-700"
             >
               <div className="mb-5 inline-flex rounded-lg bg-zinc-800 p-3 text-zinc-400 transition-colors duration-200 group-hover:bg-cyan-500/10 group-hover:text-cyan-400">
                 <item.icon className="h-6 w-6" />
@@ -69,6 +72,11 @@ export function WhatIBuild() {
 
               <p className="leading-relaxed text-zinc-500">
                 {item.description}
+              </p>
+
+              {/* Example line */}
+              <p className="mt-4 border-t border-zinc-800 pt-4 text-sm italic text-zinc-600">
+                {item.example}
               </p>
             </motion.div>
           ))}
