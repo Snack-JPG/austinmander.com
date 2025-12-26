@@ -1,35 +1,23 @@
 "use client";
 
-import { HeroV2 } from "@/components/v2/HeroV2";
-import { ProblemSection } from "@/components/v2/ProblemSection";
-import { ServicesCards } from "@/components/v2/ServicesCards";
-import { ProofSection } from "@/components/v2/ProofSection";
-import { HowItWorks } from "@/components/v2/HowItWorks";
-import { FAQV2 } from "@/components/v2/FAQV2";
-import { FinalCTA } from "@/components/v2/FinalCTA";
-import { FooterV2 } from "@/components/v2/FooterV2";
-import { SocialProofNotification, CredibilityBadge } from "@/components/v2/SocialProof";
-import { CursorGlow, ScrollProgress } from "@/components/v2/CursorGlow";
+import { HeroRedesign } from "@/components/v2/HeroRedesign";
+import { WhatIBuild } from "@/components/v2/WhatIBuild";
+import { CurrentlyBuilding } from "@/components/v2/CurrentlyBuilding";
+import { HowItWorksRedesign } from "@/components/v2/HowItWorksRedesign";
+import { FAQRedesign } from "@/components/v2/FAQRedesign";
+import { FinalCTARedesign } from "@/components/v2/FinalCTARedesign";
+import { FooterRedesign } from "@/components/v2/FooterRedesign";
 
 export default function V2Page() {
   return (
-    <>
-      {/* Premium visual effects */}
-      <ScrollProgress />
-      <CursorGlow />
-      <CredibilityBadge />
-      <SocialProofNotification />
-
-      <main className="overflow-x-hidden">
-        <HeroV2 />
-        <ProblemSection />
-        <ServicesCards />
-        <ProofSection />
-        <HowItWorks />
-        <FAQV2 />
-        <FinalCTA />
-        <FooterV2 />
-      </main>
-    </>
+    <main className="overflow-x-hidden bg-[#0a0a0f]">
+      <HeroRedesign />
+      <WhatIBuild />
+      <CurrentlyBuilding />
+      <HowItWorksRedesign />
+      <FAQRedesign />
+      <FinalCTARedesign />
+      <FooterRedesign />
+    </main>
   );
 }
