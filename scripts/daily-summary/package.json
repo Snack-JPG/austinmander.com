@@ -1,0 +1,17 @@
+{
+  "name": "daily-summary",
+  "version": "1.0.0",
+  "description": "Multi-repo commit aggregator with LinkedIn post generation and Notion sync",
+  "scripts": {
+    "gather": "npx tsx gather-commits.ts",
+    "linkedin": "npx tsx generate-linkedin-post.ts",
+    "notion": "npx tsx push-to-notion.ts",
+    "all": "npm run gather && npm run linkedin && npm run notion",
+    "today": "npm run gather && npm run linkedin"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "tsx": "^4.7.0",
+    "typescript": "^5.0.0"
+  }
+}

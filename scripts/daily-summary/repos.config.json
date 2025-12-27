@@ -1,0 +1,159 @@
+{
+  "repos": [
+    {
+      "path": "/Users/austin/Desktop/PulseAI",
+      "name": "PulseAI",
+      "category": "main",
+      "enabled": true
+    },
+    {
+      "path": "/Users/austin/Desktop/MirageEngine",
+      "name": "MirageEngine",
+      "category": "games",
+      "enabled": true
+    },
+    {
+      "path": "/Users/austin/Desktop/Smoke-Runner",
+      "name": "Smoke-Runner",
+      "category": "tools",
+      "enabled": true
+    },
+    {
+      "path": "/Users/austin/Desktop/Pixelqueue",
+      "name": "Pixelqueue",
+      "category": "projects",
+      "enabled": true
+    },
+    {
+      "path": "/Users/austin/Desktop/Chaseyourdream.co.uk",
+      "name": "ChaseYourDream",
+      "category": "websites",
+      "enabled": true
+    },
+    {
+      "path": "/Users/austin/Desktop/Zaragral.com",
+      "name": "Zaragral",
+      "category": "websites",
+      "enabled": true
+    },
+    {
+      "path": "/Users/austin/Desktop/Change Radar Copy",
+      "name": "ChangeRadar",
+      "category": "main",
+      "enabled": true
+    },
+    {
+      "path": "/Users/austin/Desktop/changeradar-landing",
+      "name": "ChangeRadar-Landing",
+      "category": "websites",
+      "enabled": true
+    },
+    {
+      "path": "/Users/austin/Desktop/lovemylounger.com",
+      "name": "LoveMyLounger",
+      "category": "websites",
+      "enabled": true
+    },
+    {
+      "path": "/Users/austin/Desktop/PitchPulse",
+      "name": "PitchPulse",
+      "category": "projects",
+      "enabled": true
+    },
+    {
+      "path": "/Users/austin/Desktop/Godot Sentinel MCP",
+      "name": "GodotSentinelMCP",
+      "category": "tools",
+      "enabled": true
+    },
+    {
+      "path": "/Users/austin/Desktop/Genflow.systems",
+      "name": "Genflow",
+      "category": "projects",
+      "enabled": true
+    },
+    {
+      "path": "/Users/austin/Desktop/Motion",
+      "name": "Motion",
+      "category": "projects",
+      "enabled": true
+    },
+    {
+      "path": "/Users/austin/Desktop/Snackk.dev",
+      "name": "Snackk",
+      "category": "websites",
+      "enabled": true
+    },
+    {
+      "path": "/Users/austin/Desktop/StackSprinter",
+      "name": "StackSprinter",
+      "category": "tools",
+      "enabled": true
+    },
+    {
+      "path": "/Users/austin/Desktop/Austinmander.com",
+      "name": "AustinMander",
+      "category": "websites",
+      "enabled": true
+    },
+    {
+      "path": "/Users/austin/Desktop/Pure",
+      "name": "Pure",
+      "category": "projects",
+      "enabled": true
+    },
+    {
+      "path": "/Users/austin/Desktop/MirageEngineGemini",
+      "name": "MirageEngineGemini",
+      "category": "games",
+      "enabled": true
+    },
+    {
+      "path": "/Users/austin/Desktop/FurnaceCore/SFXForge",
+      "name": "SFXForge",
+      "category": "uncategorized",
+      "enabled": true
+    },
+    {
+      "path": "/Users/austin/Desktop/FurnaceCore/Golden-Fabric-Repo",
+      "name": "GoldenFabricRepo",
+      "category": "uncategorized",
+      "enabled": true
+    },
+    {
+      "path": "/Users/austin/Desktop/FurnaceCore/PixelForge MCP",
+      "name": "PixelForgeMCP",
+      "category": "uncategorized",
+      "enabled": true
+    },
+    {
+      "path": "/Users/austin/Desktop/clearcontract-mvp/clearcontract",
+      "name": "clearcontract",
+      "category": "uncategorized",
+      "enabled": true
+    },
+    {
+      "path": "/Users/austin/Desktop/GenFlowAerial.com/web",
+      "name": "web",
+      "category": "uncategorized",
+      "enabled": true
+    },
+    {
+      "path": "/Users/austin/Desktop/OurWedding.com/standalone-rsvp",
+      "name": "standalonersvp",
+      "category": "uncategorized",
+      "enabled": true
+    }
+  ],
+  "settings": {
+    "autoDiscover": true,
+    "discoverPaths": [
+      "/Users/austin/Desktop"
+    ],
+    "excludePatterns": [
+      "node_modules",
+      ".Trash",
+      "backup"
+    ]
+  }
+}
