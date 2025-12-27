@@ -293,7 +293,16 @@ function generateNarrativeSummary(summary: DailySummary): string {
 }
 
 async function main() {
-  const outputPath = path.join(process.cwd(), 'scripts/daily-summary/output.json');
+  // Try relative to script location first, then fallback to cwd-based path
+  const scriptDir = path.dirname(new URL(import.meta.url).pathname);
+  let outputPath = path.join(scriptDir, 'output.json');
+
+  if (!fs.existsSync(outputPath)) {
+    outputPath = path.join(process.cwd(), 'scripts/daily-summary/output.json');
+  }
+  if (!fs.existsSync(outputPath)) {
+    outputPath = path.join(process.cwd(), 'output.json');
+  }
 
   if (!fs.existsSync(outputPath)) {
     console.error('❌ No output.json found. Run gather-commits.ts first.');

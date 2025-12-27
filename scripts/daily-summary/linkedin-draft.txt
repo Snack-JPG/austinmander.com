@@ -1,75 +1,37 @@
-🤖 Today I gave my AI a home.
+15 days. 41 updates. And the app actually got smaller.
 
-Not a chatbot. Not a popup. A proper AI Sidebar that lives in your workflow.
+I've been building PulseAI - a tool that helps project managers see problems before they become fires.
 
-Here's what I shipped on December 27th:
-
----
-
-🎯 **Pulse AI Sidebar - The Big Feature**
-
-Built a context-aware AI assistant that actually knows what you're looking at.
-
-How it works:
-→ Open a project? The AI already knows which project you're viewing
-→ Looking at risks? It's ready to analyze your risk register
-→ Reviewing financials? It has the budget context loaded
-
-No more "here's the project ID" copy-paste dance.
-
-The AI meets you where you are.
+Here's what the last two weeks looked like:
 
 ---
 
-💬 **PulseChat Integration**
+The goal was simple: make it smarter and cleaner.
 
-Connected our Pulse intelligence engine directly into the sidebar.
+Smarter meant adding an AI assistant that actually understands context. Open a project, and it already knows what you're looking at. No explaining, no copy-pasting IDs. It just works.
 
-Same 8 specialized AI engines:
-→ Analyze (health metrics)
-→ Predict (forecasting)
-→ Recommend (actions)
-→ Explain (root causes)
-→ Compare (benchmarks)
-→ Alert (proactive warnings)
-→ Summarize (exec briefs)
-→ Report (document generation)
+Cleaner meant removing everything that didn't need to be there. Old experiments. Duplicate code. Features nobody used.
 
-Now accessible with one click from anywhere in the app.
+The result? We added new capabilities AND the codebase shrunk by 23,000 lines.
 
 ---
 
-🧹 **Tech Debt Demolition**
+Some of this happened on Christmas Day. Not because I had to - because I genuinely enjoy building things.
 
-While building forward, I was also cleaning backward.
-
-Deleted 1,815 lines of legacy code.
-
-Documented refactoring plans for 2 mega-components:
-→ BoardPackTemplate.tsx (1,200+ lines → targeted modules)
-→ ai-command/page.tsx (monster component → focused pieces)
-
-The goal: no file over 300 lines by Q1.
+There's something satisfying about making software that helps people do their jobs better. Project managers spend too much time in spreadsheets and status meetings. I want to give them that time back.
 
 ---
 
-📊 **The Numbers**
+Building in public means sharing the messy parts too:
 
-10 commits
-30+ files changed
-+6,100 lines added
--2,400 lines removed
+- I broke the app 3 times this week
+- One bug took 4 hours to find (it was a single missing character)
+- I still have a list of 47 things I want to improve
 
-Net: Shipped a major feature AND reduced codebase size.
-
----
-
-That's the dream, right?
-
-Build new value. Remove old debt. Every commit leaves the codebase better than you found it.
+That's just how it goes.
 
 ---
 
-What's your strategy for balancing new features vs. cleanup?
+If you're building something too, I'd love to hear about it. What are you working on?
 
-#BuildInPublic #AI #ProductDevelopment #TechDebt #TypeScript #StartupLife
+#BuildInPublic #Startup #AI #ProjectManagement
