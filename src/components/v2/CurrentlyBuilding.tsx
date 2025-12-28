@@ -4,7 +4,8 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Suspense } from "react";
 import dynamic from "next/dynamic";
-import { ArrowRight, Check } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, Check, MessageSquare, FileText } from "lucide-react";
 
 // Dynamically import the 3D radar
 const RadarElement = dynamic(() => import("./RadarElement"), {
@@ -23,6 +24,23 @@ const features = [
   "Connects to Jira, Monday, Slack — single source of truth",
   "Scheduled reports sent automatically to stakeholders",
   "Natural language queries: ask questions, get answers",
+];
+
+const connectorTools = [
+  {
+    name: "Meeting Intelligence",
+    description: "Transcripts → actions, decisions, risks",
+    href: "/meeting-intel",
+    icon: MessageSquare,
+    color: "cyan",
+  },
+  {
+    name: "Document Intelligence",
+    description: "Contracts & docs → structured data",
+    href: "/document-intel",
+    icon: FileText,
+    color: "emerald",
+  },
 ];
 
 export function CurrentlyBuilding() {
@@ -64,7 +82,7 @@ export function CurrentlyBuilding() {
             className="order-1 lg:order-2"
           >
             <p className="font-[family-name:var(--font-jetbrains)] text-sm font-medium uppercase tracking-widest text-cyan-400">
-              My Product
+              The Product Ecosystem
             </p>
 
             <h2 className="mt-4 font-[family-name:var(--font-space-grotesk)] text-3xl font-bold text-white sm:text-4xl">
@@ -99,19 +117,60 @@ export function CurrentlyBuilding() {
               transition={{ duration: 0.5, delay: 0.6 }}
               className="mt-10 flex items-center gap-6"
             >
-              <a
-                href="#"
+              <Link
+                href="/change-radar"
                 className="group inline-flex items-center gap-2 rounded-lg bg-cyan-500 px-6 py-3 font-semibold text-zinc-900 transition-colors hover:bg-cyan-400"
               >
-                <span>Join Waitlist</span>
+                <span>Learn More</span>
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </a>
+              </Link>
               <span className="font-[family-name:var(--font-jetbrains)] text-sm text-zinc-600">
-                Launching Q1 2025
+                In Development
               </span>
             </motion.div>
           </motion.div>
         </div>
+
+        {/* Connector Tools */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.7 }}
+          className="mt-20"
+        >
+          <p className="mb-6 text-center font-[family-name:var(--font-jetbrains)] text-sm font-medium uppercase tracking-widest text-zinc-500">
+            Tools that feed into Change Radar
+          </p>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {connectorTools.map((tool) => {
+              const Icon = tool.icon;
+              return (
+                <Link
+                  key={tool.name}
+                  href={tool.href}
+                  className="group flex items-center gap-4 rounded-xl border border-zinc-800 bg-zinc-900/50 p-5 transition-all hover:border-zinc-700 hover:bg-zinc-900"
+                >
+                  <div
+                    className={`flex h-12 w-12 items-center justify-center rounded-lg ${
+                      tool.color === "cyan"
+                        ? "bg-cyan-500/10 text-cyan-400"
+                        : "bg-emerald-500/10 text-emerald-400"
+                    }`}
+                  >
+                    <Icon className="h-6 w-6" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-[family-name:var(--font-space-grotesk)] font-semibold text-white">
+                      {tool.name}
+                    </h3>
+                    <p className="text-sm text-zinc-500">{tool.description}</p>
+                  </div>
+                  <ArrowRight className="h-5 w-5 text-zinc-600 transition-transform group-hover:translate-x-1 group-hover:text-zinc-400" />
+                </Link>
+              );
+            })}
+          </div>
+        </motion.div>
       </div>
     </section>
   );
