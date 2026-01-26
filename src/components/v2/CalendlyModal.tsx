@@ -14,6 +14,8 @@ declare global {
       initInlineWidget: (options: {
         url: string;
         parentElement: HTMLElement;
+        prefill?: Record<string, string>;
+        utm?: Record<string, string>;
       }) => void;
     };
   }
@@ -118,8 +120,9 @@ export function CalendlyButton({
   return (
     <button
       onClick={openCalendly}
-      className={className}
+      className={`focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0f] ${className}`}
       type="button"
+      aria-label="Book a discovery call - opens Calendly scheduling"
     >
       {children}
     </button>
