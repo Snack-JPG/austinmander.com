@@ -36,7 +36,7 @@ export function OptimizedImage({
   fill = false,
   style,
   objectFit = 'cover',
-}: OptimizedImageProps): JSX.Element {
+}: OptimizedImageProps): React.JSX.Element {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(false);
   const imgRef = useRef<HTMLDivElement>(null);
@@ -151,7 +151,7 @@ export function OptimizedImage({
 
 // Specialized components for common use cases
 
-export function HeroImage(props: Omit<OptimizedImageProps, 'priority' | 'sizes'>): JSX.Element {
+export function HeroImage(props: Omit<OptimizedImageProps, 'priority' | 'sizes'>): React.JSX.Element {
   return (
     <OptimizedImage
       {...props}
@@ -162,7 +162,7 @@ export function HeroImage(props: Omit<OptimizedImageProps, 'priority' | 'sizes'>
   );
 }
 
-export function ThumbnailImage(props: Omit<OptimizedImageProps, 'sizes'>): JSX.Element {
+export function ThumbnailImage(props: Omit<OptimizedImageProps, 'sizes'>): React.JSX.Element {
   return (
     <OptimizedImage
       {...props}
@@ -172,7 +172,7 @@ export function ThumbnailImage(props: Omit<OptimizedImageProps, 'sizes'>): JSX.E
   );
 }
 
-export function AvatarImage(props: Omit<OptimizedImageProps, 'sizes'>): JSX.Element {
+export function AvatarImage(props: Omit<OptimizedImageProps, 'sizes'>): React.JSX.Element {
   return (
     <OptimizedImage
       {...props}
@@ -186,7 +186,7 @@ export function AvatarImage(props: Omit<OptimizedImageProps, 'sizes'>): JSX.Elem
 export function BackgroundImage({ 
   children, 
   ...props 
-}: OptimizedImageProps & { children: React.ReactNode }): JSX.Element {
+}: OptimizedImageProps & { children: React.ReactNode }): React.JSX.Element {
   return (
     <div className="relative">
       <OptimizedImage
