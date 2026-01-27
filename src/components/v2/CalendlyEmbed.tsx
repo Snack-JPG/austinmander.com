@@ -10,6 +10,8 @@ interface CalendlyEmbedProps {
 declare global {
   interface Window {
     Calendly?: {
+      initPopupWidget: (options: { url: string }) => void;
+      closePopupWidget: () => void;
       initInlineWidget: (options: {
         url: string;
         parentElement: HTMLElement;
