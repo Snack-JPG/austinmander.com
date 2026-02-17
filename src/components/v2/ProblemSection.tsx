@@ -32,7 +32,7 @@ export function ProblemSection() {
   return (
     <section
       ref={ref}
-      className="relative bg-zinc-950 px-6 py-24 lg:px-12 lg:py-32"
+      className="relative bg-slate-900 px-6 py-24 lg:px-12 lg:py-32"
     >
       {/* Decorative elements */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">

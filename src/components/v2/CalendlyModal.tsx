@@ -120,7 +120,7 @@ export function CalendlyButton({
   return (
     <button
       onClick={openCalendly}
-      className={`focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0f] ${className}`}
+      className={`focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0f172a] ${className}`}
       type="button"
       aria-label="Book a discovery call - opens Calendly scheduling"
     >

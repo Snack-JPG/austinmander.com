@@ -238,7 +238,7 @@ function WebGLRadar() {
       }}
       fallback={<RadarFallback />}
     >
-      <color attach="background" args={["#0a0a0f"]} />
+      <color attach="background" args={["#0f172a"]} />
       <ambientLight intensity={0.5} />
       <RadarScene />
     </Canvas>

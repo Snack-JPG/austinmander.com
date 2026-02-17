@@ -1,25 +1,17 @@
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { FooterCTA } from "@/components/smart-cta";
 
 interface CTAProps {
   title?: string;
   description?: string;
-  primaryText?: string;
-  primaryHref?: string;
-  secondaryText?: string;
-  secondaryHref?: string;
   variant?: "default" | "dark" | "light";
+  page?: string;
 }
 
 export function CTA({
-  title = "Ready to transform your organisation with AI?",
-  description = "Book a discovery call to explore how AI can save your leaders time and deliver predictable change.",
-  primaryText = "Book Discovery Call",
-  primaryHref = "/book",
-  secondaryText = "Download SOW",
-  secondaryHref = "/resources",
+  title = "Stop Guessing About Risk. Start Steering Your Transformation.",
+  description = "Get £10k QuickWin proof in 2 weeks. Surface hidden risks 3-8 weeks earlier and recover leadership hours with Change Radar.",
   variant = "default",
+  page = "home",
 }: CTAProps) {
   const bgClass = 
     variant === "dark" 
@@ -38,26 +30,7 @@ export function CTA({
           <p className="text-lg text-slate-200 dark:text-slate-300 mb-8">
             {description}
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            {primaryText && primaryHref && (
-              <Button asChild size="lg" className="bg-teal hover:bg-teal/90">
-                <Link href={primaryHref}>
-                  {primaryText}
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
-              </Button>
-            )}
-            {secondaryText && secondaryHref && (
-              <Button 
-                asChild 
-                size="lg" 
-                variant="outline" 
-                className="border-white text-white hover:bg-white hover:text-navy"
-              >
-                <Link href={secondaryHref}>{secondaryText}</Link>
-              </Button>
-            )}
-          </div>
+          <FooterCTA page={page} className="flex flex-col sm:flex-row gap-4 justify-center" />
         </div>
       </div>
     </section>

@@ -24,7 +24,7 @@ export function ProofSection() {
       ref={ref}
       aria-labelledby="proof-title"
       tabIndex={-1}
-      className="relative bg-[#0a0a0f] px-6 py-24 lg:px-12 lg:py-32 focus:outline-none"
+      className="relative bg-[#0f172a] px-6 py-24 lg:px-12 lg:py-32 focus:outline-none"
     >
       {/* Decorative elements */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">

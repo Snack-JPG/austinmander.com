@@ -2,9 +2,9 @@ import { publicEnv } from './env';
 
 export const siteConfig = {
   name: "Austin Mander",
-  title: "Austin Mander — AI Consultant & Product Creator",
+  title: "Austin Mander — Stop Guessing. Start Steering.",
   description:
-    "I help organisations use AI to save leaders time, reduce risk, and deliver predictable change. Founder of Change Radar — predictive intelligence for transformation.",
+    "I help transformation leaders surface hidden risks 3–8 weeks earlier and recover leadership hours with Change Radar. The AI consultant who built the solution.",
   url: publicEnv.siteUrl,
   ogImage: `${publicEnv.siteUrl}/og-image.png`,
   links: {
@@ -23,36 +23,36 @@ export const siteConfig = {
 };
 
 export const heroContent = {
-  headline: "Austin Mander — AI Consultant & Product Creator",
+  headline: "Stop Guessing. Start Steering.",
   subheadline:
-    "I help organisations use AI to save leaders time, reduce risk, and deliver predictable change. Founder of Change Radar — predictive intelligence for transformation.",
-  primaryCta: "Book 30-min discovery",
-  secondaryCta: "Download pilot SOW",
+    "I help transformation leaders surface hidden risks 3–8 weeks earlier and recover leadership hours with Change Radar — AI-driven intelligence delivered in a 2-week proof.",
+  primaryCta: "Get £10k QuickWin",
+  secondaryCta: "See Change Radar Demo",
   valueBullets: [
-    "Time back for leaders — recover 8+ hours / week",
-    "Predictive intelligence for program risk",
-    "Explainable insights — no black boxes",
-    "Consultancy + product = fast proof & long-term scale",
+    "Surface risks 3-8 weeks before they hit",
+    "Recover 8+ leadership hours per week",
+    "2-week proof of concept delivery",
+    "Built the solution, not just the strategy",
   ],
 };
 
 export const servicesContent = {
-  headline: "Services",
+  headline: "Three Ways to Work Together",
   services: [
     {
-      title: "AI Strategy & Playbooks",
-      description: "Strategic guidance for AI adoption and implementation",
-      price: "£300/hr",
+      title: "Change Radar QuickWin™",
+      description: "2-week proof of concept with immediate risk intelligence",
+      price: "£10,000 fixed",
     },
     {
-      title: "Change Radar Pilot",
-      description: "Predictive intelligence for your transformation program",
-      price: "£15,000 fixed",
+      title: "Full Implementation",
+      description: "Complete transformation intelligence platform deployment",
+      price: "£45k - £120k",
     },
     {
-      title: "AI Product Development",
-      description: "Custom AI-assisted tool development for your organization",
-      price: "Engagement on request",
+      title: "Strategic Retainer",
+      description: "Ongoing advisory with continuous product evolution",
+      price: "£7k - £20k/month",
     },
   ],
 };

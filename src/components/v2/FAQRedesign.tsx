@@ -121,7 +121,7 @@ export function FAQRedesign() {
       ref={ref}
       aria-labelledby="faq-title"
       tabIndex={-1}
-      className="relative bg-[#0a0a0f] px-6 py-24 lg:px-12 lg:py-32 focus:outline-none"
+      className="relative bg-[#0f172a] px-6 py-24 lg:px-12 lg:py-32 focus:outline-none"
     >
       <div className="mx-auto max-w-3xl">
         {/* Section header */}

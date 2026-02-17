@@ -1,71 +1,56 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
 import "../styles/globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
-import { siteConfig } from "@/lib/config";
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteConfig.url),
+  metadataBase: new URL("https://austinmander.com"),
   title: {
-    default: siteConfig.title,
-    template: `%s | ${siteConfig.name}`,
+    default: "Austin Mander — Full Stack Developer & AI Engineer",
+    template: "%s | Austin Mander",
   },
-  description: siteConfig.description,
+  description:
+    "21-year-old developer who built a 550,000-line enterprise SaaS solo. Next.js, TypeScript, AI. View projects and get in touch.",
   keywords: [
     "Austin Mander",
-    "AI Consultant",
-    "AI Product Creator",
-    "Change Radar",
-    "Transformation AI",
-    "Project Risk AI",
-    "AI Strategy",
+    "full stack developer",
+    "Next.js",
+    "TypeScript",
+    "AI engineer",
+    "Birmingham UK",
   ],
-  authors: [{ name: siteConfig.name }],
-  creator: siteConfig.name,
+  authors: [{ name: "Austin Mander" }],
+  creator: "Austin Mander",
   openGraph: {
     type: "website",
     locale: "en_GB",
-    url: siteConfig.url,
-    siteName: siteConfig.name,
-    title: siteConfig.title,
-    description: siteConfig.description,
+    url: "https://austinmander.com",
+    siteName: "Austin Mander",
+    title: "Austin Mander — Full Stack Developer & AI Engineer",
+    description:
+      "21-year-old developer who built a 550,000-line enterprise SaaS solo. Next.js, TypeScript, AI.",
     images: [
       {
-        url: siteConfig.ogImage,
+        url: "/og",
         width: 1200,
         height: 630,
-        alt: siteConfig.name,
+        alt: "Austin Mander — Full Stack Developer & AI Engineer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: siteConfig.title,
-    description: siteConfig.description,
-    images: [siteConfig.ogImage],
-    creator: "@austinmander",
+    title: "Austin Mander — Full Stack Developer & AI Engineer",
+    description:
+      "21-year-old developer who built a 550,000-line enterprise SaaS solo. Next.js, TypeScript, AI.",
+    images: ["/og"],
   },
   robots: {
     index: true,
     follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
   },
   icons: {
     icon: "/favicon.ico",
-    shortcut: "/favicon-16x16.png",
-    apple: "/apple-touch-icon.png",
   },
 };
 
@@ -75,18 +60,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} font-sans antialiased`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <div className="min-h-screen bg-background">
-            {children}
-          </div>
-        </ThemeProvider>
+    <html lang="en" className="scroll-smooth">
+      <body
+        className={`${GeistSans.variable} ${GeistMono.variable} min-h-screen bg-[#0a0a0a] font-sans text-white antialiased`}
+      >
+        {children}
       </body>
     </html>
   );

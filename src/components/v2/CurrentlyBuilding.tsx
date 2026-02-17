@@ -34,7 +34,7 @@ export function CurrentlyBuilding() {
   return (
     <section
       ref={ref}
-      className="relative overflow-hidden bg-[#0a0a0f] px-6 py-24 lg:px-12 lg:py-32"
+      className="relative overflow-hidden bg-[#0f172a] px-6 py-24 lg:px-12 lg:py-32"
     >
       <div className="mx-auto max-w-6xl">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">

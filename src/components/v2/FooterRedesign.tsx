@@ -6,24 +6,24 @@ import { Linkedin, Github, Twitter } from "lucide-react";
 const socialLinks = [
   {
     name: "LinkedIn",
-    href: "https://linkedin.com/in/austinmander",
+    href: "https://linkedin.com/in/austin-mander",
     icon: Linkedin,
   },
   {
     name: "GitHub",
-    href: "https://github.com/austinmander",
+    href: "https://github.com/Snack-JPG",
     icon: Github,
   },
   {
     name: "Twitter",
-    href: "https://twitter.com/austinmander",
+    href: "https://twitter.com/austinmander_",
     icon: Twitter,
   },
 ];
 
 export function FooterRedesign() {
   return (
-    <footer className="border-t border-zinc-800/50 bg-[#0a0a0f] px-6 py-16 lg:px-12">
+    <footer className="border-t border-zinc-800/50 bg-[#0f172a] px-6 py-16 lg:px-12">
       <div className="mx-auto max-w-5xl">
         <div className="flex flex-col items-center justify-between gap-8 sm:flex-row">
           {/* Name */}
@@ -44,7 +44,7 @@ export function FooterRedesign() {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-lg p-3 text-zinc-400 transition-colors hover:bg-zinc-900 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0f]"
+                className="rounded-lg p-3 text-zinc-400 transition-colors hover:bg-zinc-900 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0f172a]"
                 aria-label={link.name}
               >
                 <link.icon className="h-5 w-5" aria-hidden="true" />

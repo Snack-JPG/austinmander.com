@@ -16,7 +16,7 @@ export function AboutSection() {
       ref={ref}
       aria-labelledby="about-title"
       tabIndex={-1}
-      className="relative bg-zinc-950 px-6 py-24 lg:px-12 lg:py-32 focus:outline-none"
+      className="relative bg-slate-900 px-6 py-24 lg:px-12 lg:py-32 focus:outline-none"
     >
       {/* Decorative elements */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">

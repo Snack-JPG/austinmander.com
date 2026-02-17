@@ -5,6 +5,7 @@ import { sendContactEmail } from "@/lib/email";
 import { createLead } from "@/lib/database";
 import { isEmailConfigured } from "@/lib/env";
 import { logger } from "@/lib/logger";
+import { triggerQuickWinNurture } from "@/lib/nurture-sequences";
 
 // Validation schema
 const contactSchema = z.object({
@@ -96,6 +97,37 @@ export async function POST(request: NextRequest) {
         email: formData.email,
         company: formData.company 
       });
+    }
+
+    // Trigger nurture sequence based on message content
+    try {
+      const messageKeywords = formData.message.toLowerCase();
+      const isQuickWinInquiry = messageKeywords.includes('quickwin') || 
+                                messageKeywords.includes('£10k') || 
+                                messageKeywords.includes('10k') ||
+                                messageKeywords.includes('pilot') ||
+                                messageKeywords.includes('quick win');
+
+      if (isQuickWinInquiry || leadScore >= 60) {
+        // High-intent lead - trigger QuickWin nurture sequence
+        await triggerQuickWinNurture(
+          formData.email,
+          formData.name,
+          formData.company,
+          leadScore,
+          'contact_form'
+        );
+        logger.info('QuickWin nurture sequence triggered', {
+          email: formData.email,
+          leadScore,
+          trigger: isQuickWinInquiry ? 'keyword' : 'high_score'
+        });
+      }
+    } catch (nurtureError) {
+      logger.error('Failed to trigger nurture sequence', nurtureError, {
+        email: formData.email
+      });
+      // Don't fail the contact form submission if nurture fails
     }
 
     return NextResponse.json({ 

@@ -7,18 +7,7 @@ interface CalendlyEmbedProps {
   height?: string;
 }
 
-declare global {
-  interface Window {
-    Calendly?: {
-      initInlineWidget: (options: {
-        url: string;
-        parentElement: HTMLElement;
-        prefill?: Record<string, string>;
-        utm?: Record<string, string>;
-      }) => void;
-    };
-  }
-}
+// Calendly types declared in CalendlyModal.tsx
 
 export function CalendlyEmbed({
   url = "https://calendly.com/austinmander/ai-audit",

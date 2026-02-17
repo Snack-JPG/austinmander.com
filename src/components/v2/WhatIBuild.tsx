@@ -37,7 +37,7 @@ export function WhatIBuild() {
   return (
     <section
       ref={ref}
-      className="relative bg-[#0a0a0f] px-6 py-24 lg:px-12 lg:py-32"
+      className="relative bg-[#0f172a] px-6 py-24 lg:px-12 lg:py-32"
     >
       <div className="mx-auto max-w-5xl">
         {/* Section header */}

@@ -13,7 +13,7 @@ export function SolutionSection() {
   return (
     <section
       ref={ref}
-      className="relative bg-[#0a0a0f] px-6 py-24 lg:px-12 lg:py-32"
+      className="relative bg-[#0f172a] px-6 py-24 lg:px-12 lg:py-32"
     >
       {/* Decorative elements */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">

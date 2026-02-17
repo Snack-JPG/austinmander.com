@@ -12,7 +12,7 @@ export function HeroRedesign() {
       <CalendlyPreload />
 
       {/* Clean background */}
-      <div className="pointer-events-none absolute inset-0 bg-[#0a0a0f]" aria-hidden="true" />
+      <div className="pointer-events-none absolute inset-0 bg-[#0f172a]" aria-hidden="true" />
 
       {/* Decorative elements */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
@@ -98,7 +98,7 @@ export function HeroRedesign() {
           >
             <CalendlyButton
               url={CALENDLY_URL}
-              className="group inline-flex items-center gap-3 rounded-none border border-white bg-white px-8 py-4 text-base font-semibold text-zinc-900 transition-all duration-300 hover:bg-transparent hover:text-white focus-visible:ring-offset-[#0a0a0f]"
+              className="group inline-flex items-center gap-3 rounded-none border border-white bg-white px-8 py-4 text-base font-semibold text-zinc-900 transition-all duration-300 hover:bg-transparent hover:text-white focus-visible:ring-offset-[#0f172a]"
             >
               <span>Book a Discovery Call</span>
               <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />

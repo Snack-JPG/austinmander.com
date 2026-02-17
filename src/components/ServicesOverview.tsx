@@ -1,13 +1,13 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Brain, Zap, Users, ArrowRight } from "lucide-react";
+import { Zap, Rocket, Repeat, ArrowRight } from "lucide-react";
 import { servicesContent } from "@/lib/config";
 
 const serviceIcons = {
-  "AI Strategy & Playbooks": Brain,
-  "Change Radar Pilot": Zap,
-  "AI Product Development": Users,
+  "Change Radar QuickWin™": Zap,
+  "Full Implementation": Rocket,
+  "Strategic Retainer": Repeat,
 };
 
 export function ServicesOverview() {
@@ -16,16 +16,16 @@ export function ServicesOverview() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-navy dark:text-white mb-4">
-            How I Can Help
+            {servicesContent.headline}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            From strategy to implementation, I offer comprehensive AI consulting services tailored to your organisation&apos;s needs.
+            Start with proof, scale with confidence. Choose the engagement that fits your transformation timeline.
           </p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 mb-12">
           {servicesContent.services.map((service, index) => {
-            const Icon = serviceIcons[service.title as keyof typeof serviceIcons] || Brain;
+            const Icon = serviceIcons[service.title as keyof typeof serviceIcons] || Zap;
             return (
               <Card key={index} className="p-6 hover:shadow-lg transition-shadow">
                 <div className="mb-4">

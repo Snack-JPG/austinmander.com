@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ArrowRight } from "lucide-react";
+import { Menu, X, ArrowRight, Linkedin, Github } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { CalendlyButton } from "./CalendlyModal";
 
@@ -80,7 +80,7 @@ export function HeaderNav() {
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
           isScrolled
-            ? "border-b border-zinc-800/50 bg-[#0a0a0f]/95 backdrop-blur-md"
+            ? "border-b border-zinc-800/50 bg-[#0f172a]/95 backdrop-blur-md"
             : "bg-transparent"
         )}
       >
@@ -90,7 +90,7 @@ export function HeaderNav() {
             <button
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               aria-label="Austin Mander - scroll to top"
-              className="font-[family-name:var(--font-space-grotesk)] text-lg font-semibold text-white transition-colors hover:text-zinc-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0f]"
+              className="font-[family-name:var(--font-space-grotesk)] text-lg font-semibold text-white transition-colors hover:text-zinc-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0f172a]"
             >
               Austin Mander
             </button>
@@ -101,7 +101,7 @@ export function HeaderNav() {
                 <li key={item.href}>
                   <button
                     onClick={() => scrollToSection(item.href)}
-                    className="text-sm font-medium text-zinc-400 transition-colors hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0f]"
+                    className="text-sm font-medium text-zinc-400 transition-colors hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0f172a]"
                   >
                     {item.name}
                   </button>
@@ -109,11 +109,33 @@ export function HeaderNav() {
               ))}
             </ul>
 
-            {/* Desktop CTA */}
-            <div className="hidden md:block">
+            {/* Desktop Social + CTA */}
+            <div className="hidden items-center gap-4 md:flex">
+              {/* Social Links */}
+              <div className="flex items-center gap-1">
+                <a
+                  href="https://linkedin.com/in/austin-mander"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-lg p-2 text-zinc-400 transition-colors hover:bg-zinc-800 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin className="h-4 w-4" aria-hidden="true" />
+                </a>
+                <a
+                  href="https://github.com/Snack-JPG"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-lg p-2 text-zinc-400 transition-colors hover:bg-zinc-800 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                  aria-label="GitHub"
+                >
+                  <Github className="h-4 w-4" aria-hidden="true" />
+                </a>
+              </div>
+
               <CalendlyButton
                 url={CALENDLY_URL}
-                className="group inline-flex items-center gap-2 border border-white bg-white px-4 py-2 text-sm font-semibold text-zinc-900 transition-all duration-300 hover:bg-transparent hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0f]"
+                className="group inline-flex items-center gap-2 border border-white bg-white px-4 py-2 text-sm font-semibold text-zinc-900 transition-all duration-300 hover:bg-transparent hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0f172a]"
               >
                 <span>Book a Call</span>
                 <ArrowRight className="h-3 w-3 transition-transform duration-300 group-hover:translate-x-0.5" aria-hidden="true" />
@@ -122,7 +144,7 @@ export function HeaderNav() {
 
             {/* Mobile Menu Button */}
             <button
-              className="p-2 text-zinc-400 transition-colors hover:text-white md:hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0f]"
+              className="p-2 text-zinc-400 transition-colors hover:text-white md:hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0f172a]"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileMenuOpen}
@@ -150,7 +172,7 @@ export function HeaderNav() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-40 bg-[#0a0a0f] md:hidden"
+            className="fixed inset-0 z-40 bg-[#0f172a] md:hidden"
           >
             <div className="flex h-full flex-col px-6 pt-20">
               <nav aria-label="Mobile navigation" className="flex-1 space-y-1">
@@ -175,7 +197,7 @@ export function HeaderNav() {
               <div className="border-t border-zinc-800/50 py-6">
                 <CalendlyButton
                   url={CALENDLY_URL}
-                  className="group flex w-full items-center justify-center gap-2 border border-white bg-white px-6 py-4 text-base font-semibold text-zinc-900 transition-all duration-300 hover:bg-transparent hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0f]"
+                  className="group flex w-full items-center justify-center gap-2 border border-white bg-white px-6 py-4 text-base font-semibold text-zinc-900 transition-all duration-300 hover:bg-transparent hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0f172a]"
                 >
                   <span>Book a Discovery Call</span>
                   <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />

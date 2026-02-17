@@ -1,21 +1,27 @@
 "use client";
 
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { ArrowRight, Calendar, Download, CheckCircle } from "lucide-react";
+import { CheckCircle } from "lucide-react";
 import { heroContent } from "@/lib/config";
 import { motion } from "framer-motion";
+import { HeroCTA } from "@/components/smart-cta";
+import { ChangeRadar } from "@/components/3d/ChangeRadar";
 
 export function Hero() {
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
       {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-teal/5 dark:from-slate-900 dark:via-slate-800 dark:to-teal/10" />
-      
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 h-80 w-80 rounded-full bg-teal/10 blur-3xl animate-pulse" />
-        <div className="absolute -bottom-40 -left-40 h-80 w-80 rounded-full bg-navy/10 blur-3xl animate-pulse delay-1000" />
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-teal/5 dark:from-slate-900 dark:via-slate-800 dark:to-teal/10 z-0" />
+
+      {/* 3D Change Radar */}
+      <div className="absolute inset-0 z-0 opacity-40">
+        <ChangeRadar
+          theme={{
+            primary: "#0b2545",
+            secondary: "#00bfa6",
+            accent: "#ffffff",
+            alert: "#f9a826",
+          }}
+        />
       </div>
 
       <div className="container relative mx-auto px-4 py-20">
@@ -40,25 +46,18 @@ export function Hero() {
             </p>
           </motion.div>
 
-          {/* CTAs */}
+          {/* Smart CTAs */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
           >
-            <Button asChild size="lg" className="bg-teal hover:bg-teal/90">
-              <Link href="/book">
-                <Calendar className="mr-2 h-5 w-5" />
-                {heroContent.primaryCta}
-              </Link>
-            </Button>
-            <Button asChild size="lg" variant="outline">
-              <Link href="/resources">
-                <Download className="mr-2 h-5 w-5" />
-                {heroContent.secondaryCta}
-              </Link>
-            </Button>
+            <HeroCTA
+              page="home"
+              className="flex flex-col sm:flex-row gap-4 justify-center"
+              showAlternatives={true}
+            />
           </motion.div>
 
           {/* Value bullets */}

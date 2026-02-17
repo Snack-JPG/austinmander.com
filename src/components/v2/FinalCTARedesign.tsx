@@ -16,7 +16,7 @@ export function FinalCTARedesign() {
   return (
     <section
       ref={ref}
-      className="relative bg-[#0a0a0f] px-6 py-24 lg:px-12 lg:py-32"
+      className="relative bg-[#0f172a] px-6 py-24 lg:px-12 lg:py-32"
     >
       {/* Decorative elements */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
@@ -103,7 +103,7 @@ export function FinalCTARedesign() {
               Prefer email?{" "}
               <a
                 href="mailto:austin@austinmander.com"
-                className="text-zinc-300 underline decoration-zinc-600 underline-offset-4 transition-colors hover:text-white hover:decoration-zinc-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0f]"
+                className="text-zinc-300 underline decoration-zinc-600 underline-offset-4 transition-colors hover:text-white hover:decoration-zinc-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0f172a]"
               >
                 austin@austinmander.com
               </a>

@@ -4,6 +4,7 @@ import { rateLimiters } from "@/lib/rate-limit-redis";
 import { subscribeToNewsletter, unsubscribeFromNewsletter } from "@/lib/database";
 import { sendEmail } from "@/lib/email";
 import { env, isEmailConfigured, isDatabaseConfigured } from "@/lib/env";
+import { triggerNewsletterNurture, unsubscribeFromAllNurture } from "@/lib/nurture-sequences";
 
 const subscribeSchema = z.object({
   email: z.string().email("Please provide a valid email address"),
@@ -155,6 +156,15 @@ export async function POST(request: NextRequest) {
       }
     }
 
+    // Trigger newsletter nurture sequence
+    try {
+      await triggerNewsletterNurture(email, name, source);
+      console.log(`📧 Newsletter nurture sequence triggered for ${email}`);
+    } catch (nurtureError) {
+      console.error('Failed to trigger newsletter nurture sequence:', nurtureError);
+      // Don't fail the subscription if nurture fails
+    }
+
     // Log the subscription
     console.log(`📧 New newsletter subscriber: ${email}${name ? ` (${name})` : ''}${source ? ` from ${source}` : ''}`);
 
@@ -195,6 +205,15 @@ export async function DELETE(request: NextRequest) {
         { error: "Failed to unsubscribe" },
         { status: 500 }
       );
+    }
+
+    // Also unsubscribe from all nurture sequences
+    try {
+      await unsubscribeFromAllNurture(email);
+      console.log(`📧 Unsubscribed from all nurture sequences: ${email}`);
+    } catch (nurtureError) {
+      console.error('Failed to unsubscribe from nurture sequences:', nurtureError);
+      // Don't fail the unsubscribe if nurture cleanup fails
     }
 
     console.log(`📧 Newsletter unsubscribe: ${email}`);
