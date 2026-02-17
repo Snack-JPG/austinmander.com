@@ -131,10 +131,18 @@ const timeline = [
 
 export default function HomePage() {
   return (
-    <main className="mx-auto max-w-3xl px-6 py-20 md:py-32">
+    <main className="mx-auto max-w-3xl px-6 py-20 md:py-32" role="main">
+      {/* Skip to content link for keyboard users */}
+      <a
+        href="#projects"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:text-black focus:text-sm focus:font-medium"
+      >
+        Skip to projects
+      </a>
+
       {/* ── Hero ── */}
-      <section className="mb-32">
-        <div className="mb-6 h-20 w-20 rounded-full bg-neutral-800 flex items-center justify-center text-neutral-500 text-xs">
+      <section aria-label="Introduction" className="mb-32">
+        <div className="mb-6 h-20 w-20 rounded-full bg-neutral-800 flex items-center justify-center text-neutral-500 text-xs" role="img" aria-label="Austin Mander headshot placeholder">
           {/* headshot placeholder */}
           AM
         </div>
@@ -192,7 +200,7 @@ export default function HomePage() {
       </section>
 
       {/* ── About ── */}
-      <section className="mb-32">
+      <section aria-label="About" className="mb-32">
         <h2 className="mb-6 text-sm font-medium uppercase tracking-widest text-neutral-500">
           About
         </h2>
@@ -226,7 +234,7 @@ export default function HomePage() {
       </section>
 
       {/* ── Projects ── */}
-      <section id="projects" className="mb-32 scroll-mt-20">
+      <section id="projects" aria-label="Projects" className="mb-32 scroll-mt-20">
         <h2 className="mb-8 text-sm font-medium uppercase tracking-widest text-neutral-500">
           What I&apos;ve Built
         </h2>
@@ -241,7 +249,7 @@ export default function HomePage() {
                   <h3 className="text-xl font-semibold">{p.title}</h3>
                   <p className="mt-1 text-sm text-neutral-400">{p.tagline}</p>
                 </div>
-                <span className="shrink-0 rounded-full bg-neutral-800 px-3 py-1 text-xs text-neutral-400">
+                <span className="shrink-0 rounded-full bg-neutral-800 px-3 py-1 text-xs text-neutral-400" aria-label={`Status: ${p.status}`}>
                   {p.status}
                 </span>
               </div>
@@ -279,7 +287,7 @@ export default function HomePage() {
       </section>
 
       {/* ── Stack ── */}
-      <section className="mb-32">
+      <section aria-label="Tech stack" className="mb-32">
         <h2 className="mb-8 text-sm font-medium uppercase tracking-widest text-neutral-500">
           Stack
         </h2>
@@ -296,7 +304,7 @@ export default function HomePage() {
       </section>
 
       {/* ── Experience / Timeline ── */}
-      <section className="mb-32">
+      <section aria-label="Experience and timeline" className="mb-32">
         <h2 className="mb-8 text-sm font-medium uppercase tracking-widest text-neutral-500">
           The Path
         </h2>
@@ -318,7 +326,7 @@ export default function HomePage() {
       </section>
 
       {/* ── Contact ── */}
-      <section id="contact" className="mb-20 scroll-mt-20">
+      <section id="contact" aria-label="Contact" className="mb-20 scroll-mt-20">
         <h2 className="mb-6 text-sm font-medium uppercase tracking-widest text-neutral-500">
           Let&apos;s Talk
         </h2>
