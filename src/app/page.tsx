@@ -149,7 +149,7 @@ export default function HomePage() {
         <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
           Austin Mander
         </h1>
-        <p className="mt-2 text-lg text-neutral-400">
+        <p className="mt-2 text-lg text-neutral-300">
           Full Stack Developer · Builder · AI Engineer
         </p>
         <p className="mt-6 max-w-xl text-neutral-300 leading-relaxed">
@@ -165,7 +165,7 @@ export default function HomePage() {
           </a>
           <a
             href="#contact"
-            className="text-sm text-neutral-400 underline underline-offset-4 hover:text-white transition"
+            className="text-sm text-neutral-300 underline underline-offset-4 hover:text-white transition"
           >
             Get in touch
           </a>
@@ -226,7 +226,7 @@ export default function HomePage() {
             and agencies — teaching teams to automate their own work, not just giving
             them a chatbot.
           </p>
-          <p className="text-neutral-400 italic">
+          <p className="text-neutral-300 italic">
             Ship fast, learn by building, stay honest about what you don&apos;t know. The
             best way to prove you can build is to have already built it.
           </p>
@@ -247,9 +247,9 @@ export default function HomePage() {
               <div className="flex items-start justify-between gap-4">
                 <div>
                   <h3 className="text-xl font-semibold">{p.title}</h3>
-                  <p className="mt-1 text-sm text-neutral-400">{p.tagline}</p>
+                  <p className="mt-1 text-sm text-neutral-300">{p.tagline}</p>
                 </div>
-                <span className="shrink-0 rounded-full bg-neutral-800 px-3 py-1 text-xs text-neutral-400" aria-label={`Status: ${p.status}`}>
+                <span className="shrink-0 rounded-full bg-neutral-800 px-3 py-1 text-xs text-neutral-300" aria-label={`Status: ${p.status}`}>
                   {p.status}
                 </span>
               </div>
@@ -265,7 +265,7 @@ export default function HomePage() {
                 {p.tech.map((t) => (
                   <span
                     key={t}
-                    className="rounded-md bg-neutral-800 px-2.5 py-1 text-xs text-neutral-400"
+                    className="rounded-md bg-neutral-800 px-2.5 py-1 text-xs text-neutral-300"
                   >
                     {t}
                   </span>
@@ -276,7 +276,7 @@ export default function HomePage() {
                   href={p.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-4 inline-flex items-center gap-1.5 text-sm text-neutral-400 hover:text-white transition"
+                  className="mt-4 inline-flex items-center gap-1.5 text-sm text-neutral-300 hover:text-white transition"
                 >
                   View <ExternalLink className="h-3.5 w-3.5" />
                 </a>
@@ -316,7 +316,7 @@ export default function HomePage() {
               </span>
               <div>
                 <h3 className="font-medium">{t.title}</h3>
-                <p className="mt-1 text-sm text-neutral-400 leading-relaxed">
+                <p className="mt-1 text-sm text-neutral-300 leading-relaxed">
                   {t.desc}
                 </p>
               </div>
