@@ -170,7 +170,7 @@ function Nav() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 border-b border-neutral-800/50 bg-[#0a0a0a]/80 backdrop-blur-md">
-      <div className="mx-auto flex max-w-3xl items-center justify-between px-6 py-3">
+      <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-3 lg:px-8">
         <a href="#" className="font-semibold text-sm tracking-tight">
           AM
         </a>
@@ -196,7 +196,7 @@ export default function HomePage() {
   return (
     <>
       <Nav />
-      <main className="mx-auto max-w-3xl px-6 pt-28 pb-20 md:pt-36" role="main">
+      <main className="mx-auto max-w-5xl px-6 pt-28 pb-20 md:pt-36 lg:px-8" role="main">
         {/* Skip to content link for keyboard users */}
         <a
           href="#projects"
@@ -210,7 +210,7 @@ export default function HomePage() {
           <p className="mb-4 text-sm text-neutral-500 font-mono">
             Hi, I&apos;m Austin.
           </p>
-          <h1 className="text-3xl font-bold tracking-tight sm:text-4xl leading-tight">
+          <h1 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl leading-tight">
             I dropped out of law school to build software.
             <br />
             <span className="text-neutral-400">
@@ -302,7 +302,7 @@ export default function HomePage() {
           <h2 className="mb-6 text-sm font-medium uppercase tracking-widest text-neutral-500">
             About
           </h2>
-          <div className="space-y-4 text-neutral-300 leading-relaxed">
+          <div className="space-y-4 text-neutral-300 leading-relaxed text-base lg:text-lg">
             <p>
               I started a Law degree at the University of Birmingham. Lasted a term.
               Realised I&apos;d rather build things than argue about them. Dropped out.
@@ -367,7 +367,7 @@ export default function HomePage() {
                   </div>
                 )}
 
-                <p className="mt-4 text-sm text-neutral-300 leading-relaxed">
+                <p className="mt-4 text-sm lg:text-base text-neutral-300 leading-relaxed">
                   {p.description}
                 </p>
                 <div className="mt-4 flex flex-wrap gap-2">
@@ -400,7 +400,7 @@ export default function HomePage() {
           <h2 className="mb-8 text-sm font-medium uppercase tracking-widest text-neutral-500">
             Stack
           </h2>
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {stack.map((s) => (
               <div key={s.category} className="rounded-lg border border-neutral-800 p-4">
                 <h3 className="mb-1 text-xs font-medium uppercase tracking-wider text-neutral-500">
