@@ -227,7 +227,7 @@ export default function HomePage() {
             Hi, I&apos;m Austin.
           </p>
           <h1 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl leading-tight">
-            I dropped out of law school to build software.
+            I left law school to build software.
             <br />
             <span className="text-neutral-400">
               550K lines later, I&apos;m still going.
@@ -320,9 +320,10 @@ export default function HomePage() {
           </h2>
           <div className="space-y-4 text-neutral-300 leading-relaxed text-base lg:text-lg">
             <p>
-              I started a Law degree at the University of Birmingham. Lasted a term.
-              Realised I&apos;d rather build things than argue about them. Dropped out.
-              Best decision I&apos;ve made.
+              I did two years of a Law degree at the University of Birmingham. Took a
+              gap year, looked at where AI was heading, and realised I&apos;d rather
+              build the future than argue about the past. Never went back. Best
+              decision I&apos;ve made.
             </p>
             <p>
               At 19, I started building Change Radar — what became a 550,000-line
