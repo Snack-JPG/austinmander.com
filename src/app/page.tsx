@@ -58,8 +58,8 @@ const projects = [
     title: "chase.md",
     tagline: "AI-powered document chasing for accountancy practices",
     description:
-      "Intelligent multi-channel escalation engine that chases clients for tax documents. Email → SMS → WhatsApp escalation with AI document recognition, magic-link client portal, and practice dashboard. Built from concept to working app in a single evening.",
-    metrics: ["Built in one evening", "3-channel escalation"],
+      "Intelligent multi-channel escalation engine that chases clients for tax documents. Email → SMS → WhatsApp escalation with AI document recognition, magic-link client portal, and practice dashboard. Solving a £945M problem across UK accountancy — 500-750 hours per practice wasted chasing documents annually.",
+    metrics: ["3-channel escalation", "AI doc recognition", "Magic-link portal"],
     tech: [
       "Next.js 15",
       "tRPC",
