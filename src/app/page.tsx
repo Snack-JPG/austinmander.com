@@ -39,6 +39,22 @@ const projects = [
     hero: true,
   },
   {
+    title: "Distillery",
+    tagline: "Stop burning 25K tokens on schema lookups — distill once, grep forever",
+    description:
+      "Claude Code plugin that distills your entire database schema into a grep-friendly index file. Instead of blowing 25K+ tokens on MCP calls every time the AI needs a table name, it searches a ~300-line local file. Zero tokens, instant results. Tested on Change Radar's 318-table schema — eliminated 32,000 tokens per lookup.",
+    metrics: ["32K→0 tokens", "318 tables indexed", "Open source", "Claude Code plugin"],
+    tech: [
+      "Claude Code",
+      "MCP",
+      "PostgreSQL",
+      "Supabase",
+    ],
+    status: "Released",
+    link: "https://github.com/Snack-JPG/Distillery",
+    hero: false,
+  },
+  {
     title: "chase.md",
     tagline: "AI-powered document chasing for accountancy practices",
     description:
@@ -282,7 +298,7 @@ export default function HomePage() {
             Now
           </h2>
           <p className="mb-4 text-xs text-neutral-600 font-mono">
-            Updated February 2025
+            Updated February 2026
           </p>
           <div className="space-y-3">
             {now.map((n, i) => (
