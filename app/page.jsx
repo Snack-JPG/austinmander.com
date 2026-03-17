@@ -9,10 +9,10 @@ const stats = [
 ];
 
 const services = [
-  "AI Agent Development - OpenClaw, LangChain, LangGraph",
-  "AI Employees & Automation - replace SaaS with intelligent agents",
-  "Full-Stack AI Applications - RAG, multi-agent systems, dashboards",
-  "MCP & Tool Integration - connect AI to any business system",
+  "AI Agent Development",
+  "AI Employees & Automation",
+  "Full-Stack AI Applications",
+  "MCP & Tool Integration",
 ];
 
 const stack = {
@@ -38,10 +38,10 @@ const stack = {
 };
 
 const aiEmployeeFlow = [
-  { title: "Knowledge Base", text: "Approved SOPs, client context, tone, and process memory.", accent: "cyan" },
-  { title: "AI Employee", text: "One agent that reasons, executes, and keeps state across the business.", accent: "amber" },
-  { title: "Tool Layer", text: "Inbox, CRM, calendar, internal docs, billing, and bespoke systems.", accent: "cyan" },
-  { title: "Human Oversight", text: "Escalations, checkpoints, and approvals only where they matter.", accent: "amber" },
+  { title: "Knowledge Base", text: "Your SOPs and context", accent: "cyan" },
+  { title: "AI Employee", text: "Reasons and executes", accent: "amber" },
+  { title: "Tool Layer", text: "Connected to everything", accent: "cyan" },
+  { title: "Human Oversight", text: "You stay in control", accent: "amber" },
 ];
 
 function StatCard({ value, label, note }) {
@@ -98,7 +98,6 @@ function ProjectCard({ project }) {
           </Link>
         )}
       </div>
-      <p className="project-details">{project.details}</p>
       <div className="badge-list">
         {project.tech.map((item) => (
           <span
@@ -131,11 +130,9 @@ export default function Home() {
           <div className="hero-content hero-content--split">
             <div className="hero-copy">
               <span className="eyebrow">Austin Mander · AI Engineer & Builder</span>
-              <h1 className="hero-title">I build AI systems with real operational weight.</h1>
+              <h1 className="hero-title">I build AI agents that replace entire SaaS products.</h1>
               <p className="hero-text">
-                I build AI agents that replace entire SaaS products. 550K lines shipped solo.
-                Now I help businesses become AI-native with agents that understand the business,
-                touch the tools, and do the work end-to-end.
+                550K lines shipped solo. Now helping businesses become AI-native.
               </p>
             </div>
 
@@ -147,9 +144,7 @@ export default function Home() {
               >
                 <span>AM</span>
               </div>
-              <p className="hero-aside-text">
-                Builder of AI employees, product-grade automations, and systems that hold up under real use.
-              </p>
+              <p className="hero-aside-text">21 · UK · Ships fast.</p>
             </div>
 
             <div className="hero-actions">
@@ -192,12 +187,7 @@ export default function Home() {
       <section className="mid-grid">
         <article className="panel reveal">
           <p className="eyebrow">About</p>
-          <p className="section-highlight">I dropped out of law to build software.</p>
-          <p className="section-text">
-            In 8 months I shipped an enterprise platform used by Fortune 500 companies, solo.
-            Now I help professional services firms and operators replace software sprawl with
-            intelligent systems that can actually execute.
-          </p>
+          <p className="section-highlight">Dropped out of law. Shipped an enterprise platform solo in 8 months. Now I build AI employees for businesses.</p>
         </article>
 
         <article
@@ -239,45 +229,36 @@ export default function Home() {
       <section className="panel ai-system-panel reveal">
         <div className="section-heading">
           <p className="eyebrow">How AI Employees Work</p>
-          <h2 className="section-title">One intelligent operator connected to the whole stack.</h2>
-          <p className="section-text ai-system-copy">
-            Instead of 5 SaaS subscriptions and a VA, you get one intelligent agent connected
-            to all your tools. It learns your business, follows your processes, and works while you sleep.
-          </p>
+          <h2 className="section-title">One agent. All your tools. Works while you sleep.</h2>
         </div>
         <div className="ai-system-diagram">
           <div className="ai-system-column">
             <div className="diagram-card diagram-card--knowledge">
               <p className="diagram-kicker">Context</p>
               <h3>Business memory</h3>
-              <p>Clients, playbooks, approved processes, edge cases, and constraints.</p>
             </div>
             <div className="diagram-card diagram-card--human">
               <p className="diagram-kicker">Control</p>
               <h3>Human approval</h3>
-              <p>Only high-risk actions are escalated. Everything else flows automatically.</p>
             </div>
           </div>
 
           <div className="diagram-core">
             <div className="diagram-core__pulse" />
             <div className="diagram-card diagram-card--agent">
-              <p className="diagram-kicker">Core Agent</p>
+              <p className="diagram-kicker">Core</p>
               <h3>AI Employee</h3>
-              <p>Reasoning, sequencing, retrieval, tool use, follow-up, and reporting in one loop.</p>
             </div>
           </div>
 
           <div className="ai-system-column">
             <div className="diagram-card diagram-card--tools">
-              <p className="diagram-kicker">Inputs + Outputs</p>
-              <h3>Connected tools</h3>
-              <p>CRM, inbox, calendar, internal docs, billing, spreadsheets, and bespoke APIs.</p>
+              <p className="diagram-kicker">Tools</p>
+              <h3>CRM · Email · Docs · Billing</h3>
             </div>
             <div className="diagram-card diagram-card--ops">
-              <p className="diagram-kicker">Results</p>
-              <h3>Operational work shipped</h3>
-              <p>Outreach, reporting, client updates, triage, data entry, and back-office execution.</p>
+              <p className="diagram-kicker">Output</p>
+              <h3>Work gets done</h3>
             </div>
           </div>
 
@@ -354,13 +335,7 @@ export default function Home() {
         <div className="contact-layout">
           <div className="contact-copy">
             <p className="eyebrow">Contact</p>
-            <h2 className="section-title">
-              Helping businesses become AI-native with systems that do the work.
-            </h2>
-            <p className="section-text">
-              If you need AI agents, internal tools, or product-grade automation that
-              can survive real use, get in touch.
-            </p>
+            <h2 className="section-title">Let&apos;s build something.</h2>
           </div>
           <div className="contact-links">
             <Link
