@@ -2,17 +2,17 @@ import Link from "next/link";
 import { projects } from "./lib/projects";
 
 const stats = [
-  { value: "550K+", label: "lines shipped", note: "Largest project: Change Radar." },
-  { value: "8 months", label: "solo enterprise SaaS", note: "Zero to production." },
-  { value: "7+", label: "public repos", note: "All real, all shipped." },
-  { value: "4 repos", label: "in one day", note: "Built and deployed." },
+  { value: "$9K", label: "first client contract", note: "Built the demo overnight. Closed on first call." },
+  { value: "550K", label: "lines in production", note: "Largest build: enterprise PMO platform, solo." },
+  { value: "24", label: "public repositories", note: "Production code. All public." },
+  { value: "<1 week", label: "average build time", note: "Most projects go from zero to deployed in days." },
 ];
 
 const services = [
-  "AI Agent Development",
-  "AI Employees & Automation",
-  "Full-Stack AI Applications",
-  "MCP & Tool Integration",
+  { name: "AI Agents & Automation", desc: "Systems that handle repetitive knowledge work — chasing documents, processing emails, updating CRMs, running reports. Connected to your existing tools." },
+  { name: "Full-Stack AI Applications", desc: "End-to-end builds. Frontend, backend, AI layer, deployment. From idea to production, usually in weeks." },
+  { name: "Tool Integration (MCP)", desc: "Connect your AI to the software you already use. CRM, email, calendar, billing — one interface, natural language." },
+  { name: "AI Strategy & Implementation", desc: "Figure out where AI actually saves you time, then build it. No slide decks. Working systems." },
 ];
 
 const stack = {
@@ -38,10 +38,10 @@ const stack = {
 };
 
 const aiEmployeeFlow = [
-  { title: "Knowledge Base", text: "Your SOPs and context", accent: "cyan" },
-  { title: "AI Employee", text: "Reasons and executes", accent: "amber" },
-  { title: "Tool Layer", text: "Connected to everything", accent: "cyan" },
-  { title: "Human Oversight", text: "You stay in control", accent: "amber" },
+  { title: "Business Context", text: "Your SOPs, processes, and knowledge", accent: "cyan" },
+  { title: "AI System", text: "Reasons through tasks, executes actions", accent: "amber" },
+  { title: "Tool Layer", text: "Connected to CRM, email, docs, billing", accent: "cyan" },
+  { title: "Human Oversight", text: "You approve what matters", accent: "amber" },
 ];
 
 const personSchema = {
@@ -52,7 +52,7 @@ const personSchema = {
   email: "mailto:austinmander04@gmail.com",
   jobTitle: "AI Engineer",
   description:
-    "UK-based AI engineer building production AI agents, enterprise tools, and full-stack applications.",
+    "UK-based AI engineer building production AI systems, automation, and full-stack applications for businesses.",
   sameAs: ["https://github.com/Snack-JPG"],
 };
 
@@ -152,10 +152,10 @@ export default function Home() {
           <div className="hero-glow" />
           <div className="hero-content hero-content--split">
             <div className="hero-copy">
-              <span className="eyebrow">Austin Mander · AI Engineer & Builder</span>
-              <h1 className="hero-title">I build things that actually ship.</h1>
+              <span className="eyebrow">Austin Mander · AI Engineer</span>
+              <h1 className="hero-title">I build AI systems that do the work.</h1>
               <p className="hero-text">
-                AI agents, full-stack apps, and tools that replace entire SaaS products. 550K lines shipped solo.
+                Not chatbots. Not demos. Production systems that connect to your tools and run your operations without babysitting.
               </p>
             </div>
 
@@ -166,7 +166,7 @@ export default function Home() {
               >
                 <span>AM</span>
               </div>
-              <p className="hero-aside-text">UK · Available for projects</p>
+              <p className="hero-aside-text">UK-based · Taking on projects</p>
             </div>
 
             <div className="hero-actions">
@@ -210,7 +210,7 @@ export default function Home() {
       <section className="mid-grid">
         <article className="panel reveal">
           <p className="eyebrow">About</p>
-          <p className="section-highlight">Dropped out of law to build software. Shipped an enterprise platform solo in 8 months. Now I help businesses replace tools and manual work with AI agents.</p>
+          <p className="section-highlight">Two years of law at university, then I chose to build software full-time. Shipped a 550K-line enterprise platform solo in 8 months. First week freelancing: built a working demo overnight, closed a $9K contract on the first call. Now I build AI systems that replace manual workflows for businesses.</p>
         </article>
 
         <article
@@ -221,10 +221,11 @@ export default function Home() {
           <ul className="service-grid">
             {services.map((service) => (
               <li
-                key={service}
+                key={service.name}
                 className="service-tile"
               >
-                {service}
+                <strong>{service.name}</strong>
+                <span className="service-desc">{service.desc}</span>
               </li>
             ))}
           </ul>
@@ -251,8 +252,8 @@ export default function Home() {
 
       <section className="panel ai-system-panel reveal">
         <div className="section-heading">
-          <p className="eyebrow">How AI Employees Work</p>
-          <h2 className="section-title">How it works.</h2>
+          <p className="eyebrow">How it works</p>
+          <h2 className="section-title">Your tools. Your data. One AI that ties it together.</h2>
         </div>
         <div className="ai-system-diagram">
           <div className="ai-system-column">
@@ -311,7 +312,7 @@ export default function Home() {
       >
         <div className="section-heading reveal">
           <p className="eyebrow">Projects</p>
-          <h2 className="section-title">Things I&apos;ve built.</h2>
+          <h2 className="section-title">Things I&apos;ve shipped.</h2>
         </div>
         <div className="project-grid">
           {projects.map((project) => (
@@ -358,7 +359,7 @@ export default function Home() {
         <div className="contact-layout">
           <div className="contact-copy">
             <p className="eyebrow">Contact</p>
-            <h2 className="section-title">Let&apos;s build something.</h2>
+            <h2 className="section-title">Got a workflow that needs fixing?</h2>
           </div>
           <div className="contact-links">
             <Link
@@ -376,7 +377,7 @@ export default function Home() {
             >
               github.com/Snack-JPG
             </Link>
-            <span className="contact-link contact-link--muted">UK-based · open to freelance and consulting</span>
+            <span className="contact-link contact-link--muted">UK-based · Available for freelance and consulting</span>
             <Link
               href="mailto:austinmander04@gmail.com?subject=Work%20with%20Austin%20Mander"
               className="cta-primary"
